@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Shooting Configs")]
-    public Transform shootingPoint;
+    public Transform[] defaultPoints;
     public Transform[] shotgunPoints;
 
     [Header("Default Attack")]
@@ -46,14 +46,19 @@ public class PlayerAttack : MonoBehaviour
         if(Input.GetKey(KeyCode.J) && Time.time > _lastFireTime) {
             _lastFireTime = Time.time + _fireRate;
 
-            if (_weaponIndex == (int)WEAPONTYPES.SHOTGUN) {
-                for(int i = 0; i < 3; i++) {
-                    ShootShotgun(shotgunPoints[i]);
-                }
-            }
+            switch (_weaponIndex) {
+                case (int)WEAPONTYPES.DEFAULT:
+                    for(int i = 0; i < defaultPoints.Length; i++) {
+                        ShootDefault(defaultPoints[i]);
+                    }
+                    break;
 
-            var bulletInstance = Instantiate(_bullet, shootingPoint.position, shootingPoint.rotation);
-            bulletInstance.GetComponent<Rigidbody2D>().velocity = shootingPoint.transform.up * _bulletSpeed;
+                case (int)WEAPONTYPES.SHOTGUN:
+                    for (int i = 0; i < shotgunPoints.Length; i++) {
+                        ShootShotgun(shotgunPoints[i]);
+                    }
+                    break;
+            }
         }
     }
 
@@ -78,5 +83,10 @@ public class PlayerAttack : MonoBehaviour
     private void ShootShotgun(Transform shotgunPoints) {
         var shotgunInstance = Instantiate(_bullet, shotgunPoints.position, shotgunPoints.rotation);
         shotgunInstance.GetComponent<Rigidbody2D>().velocity = shotgunPoints.transform.up * _bulletSpeed;
+    }
+
+    private void ShootDefault(Transform defaultPoints) {
+        var bulletInstance = Instantiate(_bullet, defaultPoints.position, defaultPoints.rotation);
+        bulletInstance.GetComponent<Rigidbody2D>().velocity = defaultPoints.transform.up * _bulletSpeed;
     }
 }
