@@ -23,6 +23,18 @@ public class PlayerAttack : MonoBehaviour
     public float shotgunSpeed;
     public float shotgunFR;
 
+    [Header("Focus Attack")]
+    public Transform[] focusPoints;
+    public GameObject focusBullet;
+    public float focusSpeed;
+    public float focusFR;
+
+    [Header("Spread Attack")]
+    public Transform[] spreadPoints;
+    public GameObject spreadBullet;
+    public float spreadSpeed;
+    public float spreadFR;
+
     //Private Variables
     private float _lastFireTime;
     private float _fireRate; //1 Bullet per fireRate, say if fireRate set to 10 then its 1 bullet/10s
@@ -40,7 +52,9 @@ public class PlayerAttack : MonoBehaviour
     enum WEAPONTYPES {
 
         DEFAULT = 0,
-        SHOTGUN = 1
+        SHOTGUN = 1,
+        FOCUS   = 2,
+        SPREAD  = 3,
     }
 
     #region Unity Methods
@@ -84,6 +98,16 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             ChangeBulletType(shotgunBullet, shotgunSpeed, shotgunFR, shotgunPoints);
             _weaponIndex = (int)WEAPONTYPES.SHOTGUN; 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            ChangeBulletType(focusBullet, focusSpeed, focusFR, focusPoints);
+            _weaponIndex = (int)WEAPONTYPES.FOCUS;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            ChangeBulletType(spreadBullet, spreadSpeed, spreadFR, spreadPoints);
+            _weaponIndex = (int)WEAPONTYPES.SPREAD;
         }
     }
 

@@ -7,13 +7,22 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerManager playerManager;
 
-    [SerializeField] private FloatVar playerFuel;
+    [Header("Scriptable Objects")]
+    [SerializeField] private FloatVar _overheat;
+    [SerializeField] private FloatVar _playerFuel;
 
     [Header("Player Config")]
     public float normalSpeed;
     public float accelSpeed;
 
+    [Space]
+    public float fuelTransferAmount;
+    public float overheatTransferAmount;
+    public float delayToNextTransfer;
+
     private float _speed;
+
+    private bool _canTransfer = true;
 
     //MoveStates
     private bool _isAcceling;
@@ -28,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
         Accelerate();
+        Transfer();
     }
 
     private void FixedUpdate() {
@@ -45,7 +55,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Accelerate() {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && playerFuel.Value > 0) {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _playerFuel.Value > 0) {
             _speed = accelSpeed;
 
             _isAcceling = true; 
@@ -61,10 +71,27 @@ public class PlayerController : MonoBehaviour
             playerManager.ReduceFuel(2.8f);
         }
 
-        if(playerFuel.Value <= 0) {
+        if(_playerFuel.Value <= 0) {
             _speed = normalSpeed;
 
             _isAcceling = false;
         }
+    }
+
+    private void Transfer() {
+        if (Input.GetKeyDown(KeyCode.L) && _canTransfer) {
+            StartCoroutine(TransferFuelToOverheat(fuelTransferAmount, overheatTransferAmount));
+        }
+    }
+
+    private IEnumerator TransferFuelToOverheat(float fuelAmount, float overheatAmount) {
+        _playerFuel.Value -= fuelAmount;
+        _overheat.Value   += overheatAmount;
+
+        _canTransfer = false;
+
+        yield return new WaitForSeconds(delayToNextTransfer);
+
+        _canTransfer = true;
     }
 }

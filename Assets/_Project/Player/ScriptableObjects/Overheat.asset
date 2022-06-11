@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f63bbdd9ea33e4c8f9702672e67d32, type: 3}
   m_Name: Overheat
   m_EditorClassIdentifier: 
-  Value: 18.8
+  Value: 4.7
