@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public float playerFuel;
 
     private float _timer = 0f;
+    private bool _canDamage = true;
 
     #region Unity Methods
     void Start() {
@@ -48,5 +49,20 @@ public class PlayerManager : MonoBehaviour
 
             _playerFuel.Value -= amount;
         }
+    }
+
+    public void TakeDamage(float amount) {
+        if (_canDamage) {
+            _playerHP.Value -= amount;
+            StartCoroutine(IFrames());
+        }
+    }
+
+    IEnumerator IFrames() {
+        _canDamage = false;
+
+        yield return new WaitForSeconds(2.2f);
+
+        _canDamage = true;
     }
 }
