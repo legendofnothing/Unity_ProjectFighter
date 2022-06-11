@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         var horizontalInput = Input.GetAxisRaw("Horizontal");
         var verticalInput   = Input.GetAxisRaw("Vertical");
 
-        var direction       = new Vector2(horizontalInput, verticalInput).normalized;
+        var direction       = new Vector2(horizontalInput, verticalInput).normalized; //Normalized to prevent moving faster diagonally
 
         rb.velocity         = direction * speed;
     }
