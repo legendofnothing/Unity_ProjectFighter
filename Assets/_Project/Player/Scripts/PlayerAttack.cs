@@ -23,17 +23,19 @@ public class PlayerAttack : MonoBehaviour
     private float _bulletSpeed;
 
     private GameObject _bullet;
+    private Transform[] _shootPoints;
 
     private int _weaponIndex = 0;
 
     enum WEAPONTYPES {
+
         DEFAULT = 0,
         SHOTGUN = 1
     }
 
     #region Unity Methods
     private void Start() {
-        ChangeBulletType(defaultBullet, defaultSpeed, defaultFR);
+        ChangeBulletType(defaultBullet, defaultSpeed, defaultFR, defaultPoints);
     }
 
     private void Update() {
@@ -46,47 +48,29 @@ public class PlayerAttack : MonoBehaviour
         if(Input.GetKey(KeyCode.J) && Time.time > _lastFireTime) {
             _lastFireTime = Time.time + _fireRate;
 
-            switch (_weaponIndex) {
-                case (int)WEAPONTYPES.DEFAULT:
-                    for(int i = 0; i < defaultPoints.Length; i++) {
-                        ShootDefault(defaultPoints[i]);
-                    }
-                    break;
-
-                case (int)WEAPONTYPES.SHOTGUN:
-                    for (int i = 0; i < shotgunPoints.Length; i++) {
-                        ShootShotgun(shotgunPoints[i]);
-                    }
-                    break;
+            for (int i = 0; i < _shootPoints.Length; i++) {
+                var bulletInstance = Instantiate(_bullet, _shootPoints[i].position, _shootPoints[i].rotation);
+                bulletInstance.GetComponent<Rigidbody2D>().velocity = _shootPoints[i].transform.up * _bulletSpeed;
             }
         }
     }
 
     private void ChangeWeapon() {
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            ChangeBulletType(defaultBullet, defaultSpeed, defaultFR);
+            ChangeBulletType(defaultBullet, defaultSpeed, defaultFR, defaultPoints);
             _weaponIndex = (int)WEAPONTYPES.DEFAULT;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            ChangeBulletType(shotgunBullet, shotgunSpeed, shotgunFR);
+            ChangeBulletType(shotgunBullet, shotgunSpeed, shotgunFR, shotgunPoints);
             _weaponIndex = (int)WEAPONTYPES.SHOTGUN; 
         }
     }
 
-    private void ChangeBulletType(GameObject bullet, float bulletSpeed, float fireRate) {
+    private void ChangeBulletType(GameObject bullet, float bulletSpeed, float fireRate, Transform[] shootPoints) {
         _bullet = bullet;
         _bulletSpeed = bulletSpeed;
         _fireRate = fireRate;
-    }
-
-    private void ShootShotgun(Transform shotgunPoints) {
-        var shotgunInstance = Instantiate(_bullet, shotgunPoints.position, shotgunPoints.rotation);
-        shotgunInstance.GetComponent<Rigidbody2D>().velocity = shotgunPoints.transform.up * _bulletSpeed;
-    }
-
-    private void ShootDefault(Transform defaultPoints) {
-        var bulletInstance = Instantiate(_bullet, defaultPoints.position, defaultPoints.rotation);
-        bulletInstance.GetComponent<Rigidbody2D>().velocity = defaultPoints.transform.up * _bulletSpeed;
-    }
+        _shootPoints = shootPoints;
+    } 
 }
