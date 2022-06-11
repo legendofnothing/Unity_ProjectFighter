@@ -670,16 +670,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c3e4982ef082044bf3146a2c06cd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _overheat: {fileID: 11400000, guid: 02fd165a92a0ec445892815a12d01ced, type: 2}
+  overheatCap: 100
+  overheatIncreaseAmount: 4.7
   defaultPoints:
   - {fileID: 973812699}
   - {fileID: 1263966244}
+  defaultBullet: {fileID: 5027569497055764640, guid: e3d954d24479de94784d755d024f7e49, type: 3}
+  defaultSpeed: 12
+  defaultFR: 0.2
   shotgunPoints:
   - {fileID: 1322848031}
   - {fileID: 1300578052}
   - {fileID: 1529916981}
-  defaultBullet: {fileID: 5027569497055764640, guid: e3d954d24479de94784d755d024f7e49, type: 3}
-  defaultSpeed: 12
-  defaultFR: 0.2
   shotgunBullet: {fileID: 4819832146529385369, guid: ef3b688ac350f9c43a923d96403dcc8b, type: 3}
   shotgunSpeed: 8
   shotgunFR: 0.35
@@ -695,10 +698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d6ca553e3d99b439c55035b047a116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHP: 100
-  playerFuel: 200
   _playerHP: {fileID: 11400000, guid: 5a0dd1d9bcab5ce4cb6ce5b6ccd72af6, type: 2}
   _playerFuel: {fileID: 11400000, guid: ec9f6ab03b031ab41aa441b3d7c75722, type: 2}
+  playerHP: 100
+  playerFuel: 200
 --- !u!1 &1263966243
 GameObject:
   m_ObjectHideFlags: 0

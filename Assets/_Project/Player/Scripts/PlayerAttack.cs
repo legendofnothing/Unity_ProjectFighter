@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
+    [SerializeField] private FloatVar _overheat;
+
     [Header("Shooting Configs")]
-    public Transform[] defaultPoints;
-    public Transform[] shotgunPoints;
+    public float overheatCap;
+    public float overheatIncreaseAmount;
 
     [Header("Default Attack")]
+    public Transform[] defaultPoints;
     public GameObject defaultBullet;
     public float defaultSpeed;
     public float defaultFR;
 
     [Header("Shotgun Attack")]
+    public Transform[] shotgunPoints;
     public GameObject shotgunBullet;
     public float shotgunSpeed;
     public float shotgunFR;
 
+    //Private Variables
     private float _lastFireTime;
     private float _fireRate; //1 Bullet per fireRate, say if fireRate set to 10 then its 1 bullet/10s
     private float _bulletSpeed;
@@ -26,6 +32,10 @@ public class PlayerAttack : MonoBehaviour
     private Transform[] _shootPoints;
 
     private int _weaponIndex = 0;
+
+    //Overheat Related
+    private float _overheatTimer;
+    private bool _canProduceHeat = true;
 
     enum WEAPONTYPES {
 
@@ -36,14 +46,22 @@ public class PlayerAttack : MonoBehaviour
     #region Unity Methods
     private void Start() {
         ChangeBulletType(defaultBullet, defaultSpeed, defaultFR, defaultPoints);
+
+        _overheat.Value = 0;
     }
 
     private void Update() {
         Shoot();
         ChangeWeapon();
+        InitiateOverheat();
+
+        if(_overheat.Value >= overheatCap) {
+            _overheat.Value = overheatCap;
+        }
     }
     #endregion
 
+    #region Inputs
     private void Shoot() {
         if(Input.GetKey(KeyCode.J) && Time.time > _lastFireTime) {
             _lastFireTime = Time.time + _fireRate;
@@ -52,6 +70,8 @@ public class PlayerAttack : MonoBehaviour
                 var bulletInstance = Instantiate(_bullet, _shootPoints[i].position, _shootPoints[i].rotation);
                 bulletInstance.GetComponent<Rigidbody2D>().velocity = _shootPoints[i].transform.up * _bulletSpeed;
             }
+
+            IncreaseOverheat(overheatIncreaseAmount);
         }
     }
 
@@ -67,10 +87,39 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    private void InitiateOverheat() {
+        if (Input.GetKeyDown(KeyCode.K) && _overheat.Value >= overheatCap) {
+            StartCoroutine(Overheat());
+        }
+    }
+
+    #endregion
+
     private void ChangeBulletType(GameObject bullet, float bulletSpeed, float fireRate, Transform[] shootPoints) {
         _bullet = bullet;
         _bulletSpeed = bulletSpeed;
         _fireRate = fireRate;
         _shootPoints = shootPoints;
     } 
+
+    private void IncreaseOverheat(float amount) {
+        if (_overheatTimer < Time.time && _canProduceHeat) {
+            _overheatTimer = Time.time + 1f;
+
+            _overheat.Value += amount;
+        }
+    }
+
+    private IEnumerator Overheat() {
+        var prevFR      = _fireRate; //Store old fireRate
+
+        _overheat.Value = 0;
+        _fireRate      -= 0.1f;
+        _canProduceHeat = false;
+
+        yield return new WaitForSeconds(1.4f);
+
+        _fireRate       = prevFR;
+        _canProduceHeat = true;
+    }
 }
