@@ -562,9 +562,7 @@ MonoBehaviour:
   maxBulletPerCycle: 12
   delayBetweenCycle: 2.2
   shootPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1430978883}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
   player: {fileID: 1225824926}
 --- !u!114 &498474728

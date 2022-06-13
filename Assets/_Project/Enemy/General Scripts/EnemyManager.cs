@@ -11,7 +11,6 @@ public class EnemyManager : MonoBehaviour
     private float _damageTimer;
     private float _currHP;
     private bool _isTouching;
-    private bool _canDamage = true;
 
     #region Unity Methods
     void Start() {
@@ -51,18 +50,6 @@ public class EnemyManager : MonoBehaviour
     #endregion
 
     public void TakeDamage(float amount) {
-        if (_canDamage) {
-            _currHP -= amount;
-
-            StartCoroutine(Iframes());
-        }
-    }
-
-    IEnumerator Iframes() {
-        _canDamage = false;
-
-        yield return new WaitForSeconds(0.4f);
-
-        _canDamage = true;
+        _currHP -= amount;
     }
 }
