@@ -12,6 +12,7 @@ public class EnemyShoot : MonoBehaviour
     public float maxBulletPerCycle;
     public float delayBetweenCycle;
     [Space]
+    public float speed;
     public Transform[] shootPoints;
 
     [Header("Other Configs")]
@@ -46,7 +47,7 @@ public class EnemyShoot : MonoBehaviour
 
                     for (int i = 0; i < shootPoints.Length; i++) {
                         GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
-                        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * 2f, ForceMode2D.Impulse);
+                        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * speed, ForceMode2D.Impulse);
                     }
 
                     _numOfBullets++;
@@ -60,7 +61,7 @@ public class EnemyShoot : MonoBehaviour
 
                 for (int i = 0; i < shootPoints.Length; i++) {
                     GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
-                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoints[i].transform.up * 2f, ForceMode2D.Impulse);
+                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoints[i].transform.up * speed, ForceMode2D.Impulse);
                 }
 
                 _numOfBullets++;
