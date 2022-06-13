@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 399132191}
   - component: {fileID: 399132193}
   - component: {fileID: 399132194}
+  - component: {fileID: 399132195}
   m_Layer: 8
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -458,6 +459,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 50
   damageDealt: 10
+--- !u!114 &399132195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399132190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50641f11243513e4ea41cd499a81a795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRadius: 3
 --- !u!1 &501354107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1188,7 @@ MonoBehaviour:
   spreadFR: 0.3
   spreadDamage: 0.5
   _damage: 0
+  _canShoot: 0
 --- !u!114 &1225824931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,7 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
-  speed: 10
+  speed: 2
   minspawnRate: 1.6
   maxspawnRate: 2.4
   minSpread: 70

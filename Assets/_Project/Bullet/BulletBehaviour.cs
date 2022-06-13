@@ -31,6 +31,12 @@ public class BulletBehaviour : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Asteroid")) {
+            collision.GetComponent<AsteroidBehaviour>().TakeDamage(_damage);
+
+            Destroy(gameObject);
+        }
     }
     #endregion
 }
