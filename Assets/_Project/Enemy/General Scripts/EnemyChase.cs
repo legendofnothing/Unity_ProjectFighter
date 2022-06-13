@@ -23,24 +23,12 @@ public class EnemyChase : MonoBehaviour
         Destroy(gameObject, timeTilDestroy);
     }
 
-    private void Update() {
-        Rotate();
-    }
-
     void FixedUpdate() {
         Chase();
     }
     #endregion
 
     private void Chase() {
-        var direction = (player.transform.position - transform.position).normalized;
-
-        //Rotate them to look at player
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Calculate angle by getting atan of direction.x and y and convert from Rad to Degree
-        rb.rotation = angle;
-    }
-
-    private void Rotate() {
         var direction = (player.transform.position - transform.position).normalized;
         rb.velocity = new Vector2(direction.x, direction.y) * speed;
     }

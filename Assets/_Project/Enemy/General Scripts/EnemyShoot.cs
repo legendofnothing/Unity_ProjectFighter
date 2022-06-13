@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class EnemyShoot : MonoBehaviour
 {
     [Header("Enemy Config")]
+    public bool doesBulletTrackPlayer;
     public float attackRate;
     public float minDistance;
     [Space]
@@ -33,18 +34,33 @@ public class EnemyShoot : MonoBehaviour
     #endregion
 
     private void Shoot() {
-        var distance = Vector2.Distance(transform.position, player.position);
+        if (!doesBulletTrackPlayer) {
+            var distance = Vector2.Distance(transform.position, player.position);
 
-        //If in range
-        if(distance <= minDistance) {
-            var shootDir = (player.position - transform.position).normalized;
+            //If in range
+            if (distance <= minDistance) {
+                var shootDir = (player.position - transform.position).normalized;
 
-            if(Time.time > _attackTimer && _canAttack) {
+                if (Time.time > _attackTimer && _canAttack) {
+                    _attackTimer = Time.time + attackRate;
+
+                    for (int i = 0; i < shootPoints.Length; i++) {
+                        GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
+                        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * 2f, ForceMode2D.Impulse);
+                    }
+
+                    _numOfBullets++;
+                }
+            }
+        }
+
+        else {
+            if (Time.time > _attackTimer && _canAttack) {
                 _attackTimer = Time.time + attackRate;
 
-                for(int i = 0; i < shootPoints.Length; i++) {
+                for (int i = 0; i < shootPoints.Length; i++) {
                     GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
-                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * 2f, ForceMode2D.Impulse);
+                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(transform.up * 2f, ForceMode2D.Impulse);
                 }
 
                 _numOfBullets++;
@@ -54,13 +70,6 @@ public class EnemyShoot : MonoBehaviour
         if(_numOfBullets >= maxBulletPerCycle) {
             StartCoroutine(CycleReset(delayBetweenCycle));
         }
-
-        //Debug Stuff
-        if(distance <= minDistance) {
-            Debug.DrawLine(transform.position, player.position, Color.red);
-        }
-
-        else Debug.DrawLine(transform.position, player.position, Color.green);
     }
     
     //Reset cycle of attack
