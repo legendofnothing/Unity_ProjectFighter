@@ -4,7 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public float detectRadius;
+    public float attackRate;
+    public GameObject enemyBullet;
+    public Transform player;
+    public float minDistance; 
+    
+    private float _attackTimer;
 
     #region Unity Methods
     void Start() {
@@ -12,19 +17,24 @@ public class EnemyAttack : MonoBehaviour
     }
  
     void Update() {
-        DetectPlayer();
+        Shoot();
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
-    }
     #endregion
 
-    private bool DetectPlayer() {
-        var circle = Physics2D.OverlapCircle(transform.position, detectRadius);
+    private void Shoot() {
+        var distance = Vector2.Distance(transform.position, player.position);
 
-        if (circle.gameObject.layer == LayerMask.NameToLayer("Player")) return true;
+        if(distance <= minDistance) {
+            var shootDir = (player.position - transform.position).normalized;
+        }
 
-        else return false;
+        //Debug Stuff
+        if(distance <= minDistance) {
+            Debug.DrawLine(transform.position, player.position, Color.red);
+        }
+
+        else Debug.DrawLine(transform.position, player.position, Color.green);
     }
+
 }
