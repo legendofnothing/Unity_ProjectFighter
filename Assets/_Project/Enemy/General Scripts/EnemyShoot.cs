@@ -60,7 +60,7 @@ public class EnemyShoot : MonoBehaviour
 
                 for (int i = 0; i < shootPoints.Length; i++) {
                     GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
-                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(transform.up * 2f, ForceMode2D.Impulse);
+                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoints[i].transform.up * 2f, ForceMode2D.Impulse);
                 }
 
                 _numOfBullets++;
