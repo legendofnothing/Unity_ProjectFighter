@@ -4,28 +4,34 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject player;
-    private PlayerManager playerManager;
+    [Header("Enemy Config")]
+    public float enemyHP;
+    public float damageDealt;
 
     private float _damageTimer;
+    private float _currHP;
     private bool _isTouching;
 
     #region Unity Methods
     void Start() {
-        playerManager = player.GetComponent<PlayerManager>();
+        _currHP = enemyHP;
     }
  
     void Update() {
         if (_damageTimer < Time.time && _isTouching) {
             _damageTimer = Time.time + 1f;
 
-            playerManager.TakeDamage(10f);
+            PlayerManager.playerManager.TakeDamage(damageDealt);
+        }
+
+        if(_currHP <= 0) {
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
-            playerManager.TakeDamage(10f);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Destroy")) {
+            Destroy(gameObject);
         }
     }
 
@@ -42,4 +48,8 @@ public class EnemyManager : MonoBehaviour
         }
     }
     #endregion
+
+    public void TakeDamage(float amount) {
+        _currHP -= amount;
+    }
 }

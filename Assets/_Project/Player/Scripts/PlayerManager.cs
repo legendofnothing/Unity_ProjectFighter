@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour
 {
+    private PlayerAttack playerAttack;
+
+    public static PlayerManager playerManager { get; private set; }
+
     [Header("Scriptable Objects")]
     [SerializeField] private FloatVar _playerHP;
     [SerializeField] private FloatVar _playerFuel;
@@ -16,9 +20,21 @@ public class PlayerManager : MonoBehaviour
     private bool _canDamage = true;
 
     #region Unity Methods
+    private void Awake() {
+
+        if (playerManager != null && playerManager != this) {
+            Destroy(this);
+        }
+        else {
+            playerManager = this;
+        }
+    }
+
     void Start() {
         _playerHP.Value = playerHP;
         _playerFuel.Value = playerFuel;
+
+        playerAttack = GetComponent<PlayerAttack>();
     }
  
     void Update() {
@@ -39,6 +55,8 @@ public class PlayerManager : MonoBehaviour
         if (_playerFuel.Value > playerFuel) {
             _playerFuel.Value = playerFuel;
         }
+
+        playerAttack._canShoot = _canDamage;
     }
     #endregion
 
