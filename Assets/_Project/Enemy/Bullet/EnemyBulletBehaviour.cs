@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class EnemyBulletBehaviour : MonoBehaviour
 {
+    /*  SUMMARY
+    * 
+    *  Destroy bullet upon hitting certain objects, dealing damage where necessary
+    * 
+    */
     #region Unity Methods
     void Start() {
         

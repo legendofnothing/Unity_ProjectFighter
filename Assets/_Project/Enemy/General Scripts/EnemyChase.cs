@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyChase : MonoBehaviour
 {
+    /*  SUMMARY
+    * 
+    *  Chase Player
+    * 
+    */
+
     public float speed;
     public float timeTilDestroy;
 
@@ -29,7 +35,10 @@ public class EnemyChase : MonoBehaviour
     #endregion
 
     private void Chase() {
+        //Calculate distance from player to Enemy
         var direction = (player.transform.position - transform.position).normalized;
+
+        //Move to player
         rb.velocity = new Vector2(direction.x, direction.y) * speed;
     }
 }

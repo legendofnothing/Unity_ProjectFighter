@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyGimick : MonoBehaviour
 {
+    /*  SUMMARY
+    * 
+    *  Misc Gimmicks for Enemy, made to make enemies more versatiles 
+    * 
+    */
+
     //Kinda like a switch on and off
     public bool LookAtPlayer;
     [Space]
@@ -35,6 +41,7 @@ public class EnemyGimick : MonoBehaviour
     }
     #endregion
 
+    //Look at the player
     private void Look() {
         var direction = (player.transform.position - transform.position).normalized;
 
@@ -43,6 +50,7 @@ public class EnemyGimick : MonoBehaviour
         rb.rotation = angle;
     }
 
+    //Rotate around itself on rotationPerSec
     private void Rotate() {
         transform.Rotate(new Vector3(0, 0, rotationPerSec) * Time.deltaTime);
     }

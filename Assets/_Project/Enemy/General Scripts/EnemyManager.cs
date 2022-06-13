@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
+    /*  SUMMARY
+    * 
+    *  Enemy Manager. Manage Enemy Things
+    * 
+    */
+
     [Header("Enemy Config")]
     public float enemyHP;
     public float damageDealt;
@@ -18,6 +24,7 @@ public class EnemyManager : MonoBehaviour
     }
  
     void Update() {
+        //Deal damageDealt per second
         if (_damageTimer < Time.time && _isTouching) {
             _damageTimer = Time.time + 1f;
 
@@ -29,6 +36,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    //Destroy Upon Hitting bound
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Destroy")) {
             Destroy(gameObject);

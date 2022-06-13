@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyShoot : MonoBehaviour
 {
+    /*  SUMMARY
+    * 
+    *  Enemy Shoot. Shoot Enemy Things
+    * 
+    */
+
     [Header("Enemy Config")]
     public bool doesBulletTrackPlayer;
     public float attackRate;
@@ -35,6 +41,7 @@ public class EnemyShoot : MonoBehaviour
     #endregion
 
     private void Shoot() {
+        //Shoot with Tracking Player
         if (!doesBulletTrackPlayer) {
             var distance = Vector2.Distance(transform.position, player.position);
 
@@ -42,6 +49,7 @@ public class EnemyShoot : MonoBehaviour
             if (distance <= minDistance) {
                 var shootDir = (player.position - transform.position).normalized;
 
+                //Shoot bullets per attackRate
                 if (Time.time > _attackTimer && _canAttack) {
                     _attackTimer = Time.time + attackRate;
 
@@ -55,7 +63,9 @@ public class EnemyShoot : MonoBehaviour
             }
         }
 
+        //Shoot without Tracking Player
         else {
+            //Shoot bullets per attackRate
             if (Time.time > _attackTimer && _canAttack) {
                 _attackTimer = Time.time + attackRate;
 
