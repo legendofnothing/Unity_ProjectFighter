@@ -7,8 +7,11 @@ public class EnemyShoot : MonoBehaviour
     [Header("Enemy Config")]
     public float attackRate;
     public float minDistance;
+    [Space]
     public float maxBulletPerCycle;
     public float delayBetweenCycle;
+    [Space]
+    public Transform[] shootPoints;
 
     [Header("Other Configs")]
     public GameObject enemyBullet;
@@ -39,8 +42,10 @@ public class EnemyShoot : MonoBehaviour
             if(Time.time > _attackTimer && _canAttack) {
                 _attackTimer = Time.time + attackRate;
 
-                GameObject bulletInstance = Instantiate(enemyBullet, transform.position, Quaternion.identity);
-                bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * 2f, ForceMode2D.Impulse);
+                for(int i = 0; i < shootPoints.Length; i++) {
+                    GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
+                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * 2f, ForceMode2D.Impulse);
+                }
 
                 _numOfBullets++;
             }

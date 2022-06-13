@@ -76,10 +76,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    //Invincible Frames
     IEnumerator IFrames() {
         _canDamage = false;
 
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(1.8f);
 
         _canDamage = true;
     }
