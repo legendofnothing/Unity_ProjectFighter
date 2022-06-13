@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     public float playerFuel;
 
     private float _timer = 0f;
-    private bool _canDamage = true;
+    [HideInInspector] public bool _canDamage = true;
 
     #region Unity Methods
     private void Awake() {
