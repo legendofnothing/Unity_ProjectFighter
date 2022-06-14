@@ -6,20 +6,17 @@ public class EnemyGimick : MonoBehaviour
 {
     /*  SUMMARY
     * 
-    *  Misc Gimmicks for Enemy, made to make enemies more versatiles 
+    *  Misc Gimmicks for Enemy, made to make enemies more versatiles. Passed down from EnemySpawner
     * 
     */
 
-    //Kinda like a switch on and off
-    public bool LookAtPlayer;
-    [Space]
-    public bool RotateAtPoint;
-    public float rotationPerSec;
+    [HideInInspector] public bool _isLookAtPlayer;
 
-    [Space]
-    //This handles moving down to Destroy bound, creating illusion of a SHUMP game 
-    public bool MoveDown;
-    public float speed;
+    [HideInInspector] public bool _isRotateAround;
+    [HideInInspector] public float _rotateSpeed;
+
+    [HideInInspector] public bool _isMovingDown;
+    [HideInInspector] public float _moveSpeed;
 
     private GameObject player;
     private Rigidbody2D rb;
@@ -36,15 +33,15 @@ public class EnemyGimick : MonoBehaviour
     }
  
     void Update() {
-        if (LookAtPlayer) {
+        if (_isLookAtPlayer) {
             Look();
         }
 
-        if (RotateAtPoint) {
+        if (_isRotateAround) {
             Rotate();
         }
 
-        if (MoveDown) {
+        if (_isMovingDown) {
             MoveDownToBound();
         }
     }
@@ -59,12 +56,12 @@ public class EnemyGimick : MonoBehaviour
         rb.rotation = angle;
     }
 
-    //Rotate around itself on rotationPerSec
+    //Rotate around itself _rotateSpeed / s
     private void Rotate() {
-        transform.Rotate(new Vector3(0, 0, rotationPerSec) * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 0, _rotateSpeed) * Time.deltaTime);
     }
 
     private void MoveDownToBound() {
-        rb.velocity = Vector2.down * speed;
+        rb.velocity = Vector2.down * _moveSpeed;
     }
 }

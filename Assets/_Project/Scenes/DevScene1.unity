@@ -576,11 +576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4279277cf26a480439d0c990b5c0ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookAtPlayer: 0
-  RotateAtPoint: 1
-  rotationPerSec: 14.4
-  MoveDown: 0
-  speed: 0
+  _isLookAtPlayer: 0
+  _isRotateAround: 0
+  _rotateSpeed: 0
+  _isMovingDown: 0
+  _moveSpeed: 0
 --- !u!114 &498474727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50641f11243513e4ea41cd499a81a795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doesBulletTrackPlayer: 1
+  doesBulletTrackPlayer: 0
   attackRate: 0.4
   minDistance: 9
   maxBulletPerCycle: 12
@@ -976,7 +976,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &589452805
 BoxCollider2D:
@@ -1314,7 +1314,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &917064077
 BoxCollider2D:
@@ -1578,11 +1578,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4279277cf26a480439d0c990b5c0ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookAtPlayer: 1
-  RotateAtPoint: 0
-  rotationPerSec: 0
-  MoveDown: 0
-  speed: 0
+  _isLookAtPlayer: 0
+  _isRotateAround: 0
+  _rotateSpeed: 0
+  _isMovingDown: 0
+  _moveSpeed: 0
 --- !u!1 &1011577618
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,7 +2193,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1395119826
 BoxCollider2D:
@@ -2583,11 +2583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4279277cf26a480439d0c990b5c0ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookAtPlayer: 1
-  RotateAtPoint: 0
-  rotationPerSec: 0
-  MoveDown: 1
-  speed: 0.2
+  _isLookAtPlayer: 0
+  _isRotateAround: 0
+  _rotateSpeed: 0
+  _isMovingDown: 0
+  _moveSpeed: 0
 --- !u!114 &1702342834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2857,6 +2857,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 399132192}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1942262745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942262747}
+  - component: {fileID: 1942262746}
+  m_Layer: 0
+  m_Name: EnemySpawnPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1942262746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942262745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf6fad78c34ac04ca82e032131bcc1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1702342832}
+  enemyToSpawn: 0
+  isLookAtPlayer: 1
+  isRotateAround: 0
+  rotateSpeed: 0
+  isMovingDown: 1
+  moveSpeed: 0.5
+--- !u!4 &1942262747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942262745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.02, y: 6.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997247079
 GameObject:
