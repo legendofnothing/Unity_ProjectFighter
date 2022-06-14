@@ -12,13 +12,12 @@ public class EnemySpawner : MonoBehaviour
 
     //This will be a prefab with a set list of enemies, spawn enemy by setiing Indexs 
     [Header("Spawner Configs")]
-    public GameObject[] enemies;
+    public GameObject enemyToSpawn;
     public float minSpawnRate;
     public float maxSpawnRate;
 
     [Header("Enemy Spawned Properties")]
     [Header("Enemy Gimmicks")]
-    public int enemyToSpawn;
     [Space]
     public bool isLookAtPlayer;
     [Space]
@@ -45,9 +44,11 @@ public class EnemySpawner : MonoBehaviour
     
     private float _spawnTimer;
 
+    private EnemyBehaviour enemyBehaviour;
+
     #region Unity Methods
     void Start() {
-        
+        enemyBehaviour = enemyToSpawn.GetComponent<EnemyBehaviour>();
     }
  
     void Update() {
@@ -56,16 +57,14 @@ public class EnemySpawner : MonoBehaviour
         if(Time.time > _spawnTimer) {
             _spawnTimer = Time.time + spawnRate;
 
-            var enemyInstance = Instantiate(enemies[enemyToSpawn], transform.position, transform.rotation);
-            PassValue(enemyInstance);
+            Instantiate(enemyToSpawn, transform.position, transform.rotation);
+            PassValue();
         }
     }
     #endregion
 
     //Pass Values Down, Insanely Inefficent 
-    void PassValue(GameObject enemyInstance) {
-        var enemyBehaviour = enemyInstance.GetComponent<EnemyBehaviour>();
-
+    void PassValue() {
         enemyBehaviour.GIMMICK_isLookAtPlayer = isLookAtPlayer;
         enemyBehaviour.GIMMICK_isRotateAround = isRotateAround;
         enemyBehaviour.GIMMICK_isMovingDown   = isMovingDown;
