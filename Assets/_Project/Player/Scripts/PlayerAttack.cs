@@ -32,13 +32,6 @@ public class PlayerAttack : MonoBehaviour
     public float focusSpeed;
     public float focusFR;
     public float focusDamage;
-
-    [Header("Spread Attack")]
-    public Transform[] spreadPoints;
-    public GameObject spreadBullet;
-    public float spreadSpeed;
-    public float spreadFR;
-    public float spreadDamage;
     #endregion 
 
     //Private Variables
@@ -58,6 +51,9 @@ public class PlayerAttack : MonoBehaviour
     private float _overheatTimer;
     private bool _canProduceHeat = true;
 
+    //Animation Related
+    private Animator anim;
+
     enum WEAPONTYPES {
 
         DEFAULT = 0,
@@ -71,6 +67,8 @@ public class PlayerAttack : MonoBehaviour
         ChangeBulletType(defaultBullet, defaultSpeed, defaultFR, defaultPoints,defaultDamage);
 
         _overheat.Value = 0;
+
+        anim = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -90,12 +88,13 @@ public class PlayerAttack : MonoBehaviour
             _lastFireTime = Time.time + _fireRate;
 
             for (int i = 0; i < _shootPoints.Length; i++) {
-                var bulletInstance = Instantiate(_bullet, _shootPoints[i].position, _shootPoints[i].rotation);
+                var bulletInstance = Instantiate(_bullet, _shootPoints[i].position, _bullet.transform.rotation);
                 bulletInstance.GetComponent<Rigidbody2D>().AddForce(_shootPoints[i].transform.up * _bulletSpeed, ForceMode2D.Impulse);
             }
 
             IncreaseOverheat(overheatIncreaseAmount);
         }
+
     }
 
     private void ChangeWeapon() {
@@ -112,11 +111,6 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
             ChangeBulletType(focusBullet, focusSpeed, focusFR, focusPoints, focusDamage);
             _weaponIndex = WEAPONTYPES.FOCUS;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            ChangeBulletType(spreadBullet, spreadSpeed, spreadFR, spreadPoints, spreadDamage);
-            _weaponIndex = WEAPONTYPES.SPREAD;
         }
     }
 
