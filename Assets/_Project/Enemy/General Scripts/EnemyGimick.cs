@@ -16,6 +16,11 @@ public class EnemyGimick : MonoBehaviour
     public bool RotateAtPoint;
     public float rotationPerSec;
 
+    [Space]
+    //This handles moving down to Destroy bound, creating illusion of a SHUMP game 
+    public bool MoveDown;
+    public float speed;
+
     private GameObject player;
     private Rigidbody2D rb;
     
@@ -38,6 +43,10 @@ public class EnemyGimick : MonoBehaviour
         if (RotateAtPoint) {
             Rotate();
         }
+
+        if (MoveDown) {
+            MoveDownToBound();
+        }
     }
     #endregion
 
@@ -53,5 +62,9 @@ public class EnemyGimick : MonoBehaviour
     //Rotate around itself on rotationPerSec
     private void Rotate() {
         transform.Rotate(new Vector3(0, 0, rotationPerSec) * Time.deltaTime);
+    }
+
+    private void MoveDownToBound() {
+        rb.velocity = Vector2.down * speed;
     }
 }

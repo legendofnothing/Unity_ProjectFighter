@@ -514,6 +514,7 @@ MonoBehaviour:
   minDistance: 9
   maxBulletPerCycle: 12
   delayBetweenCycle: 2.2
+  speed: 0
   shootPoints:
   - {fileID: 1390525083}
   - {fileID: 1861924849}
@@ -578,6 +579,8 @@ MonoBehaviour:
   LookAtPlayer: 0
   RotateAtPoint: 1
   rotationPerSec: 14.4
+  MoveDown: 0
+  speed: 0
 --- !u!114 &498474727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +598,7 @@ MonoBehaviour:
   minDistance: 9
   maxBulletPerCycle: 12
   delayBetweenCycle: 2.2
+  speed: 2
   shootPoints:
   - {fileID: 1430978883}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
@@ -1577,6 +1581,8 @@ MonoBehaviour:
   LookAtPlayer: 1
   RotateAtPoint: 0
   rotationPerSec: 0
+  MoveDown: 0
+  speed: 0
 --- !u!1 &1011577618
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,9 +2583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4279277cf26a480439d0c990b5c0ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookAtPlayer: 0
+  LookAtPlayer: 1
   RotateAtPoint: 0
   rotationPerSec: 0
+  MoveDown: 1
+  speed: 0.2
 --- !u!114 &1702342834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2597,6 +2605,7 @@ MonoBehaviour:
   minDistance: 9
   maxBulletPerCycle: 12
   delayBetweenCycle: 2.2
+  speed: 2
   shootPoints:
   - {fileID: 1592876182}
   - {fileID: 1468343729}

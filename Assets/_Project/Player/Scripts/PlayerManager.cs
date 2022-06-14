@@ -58,6 +58,12 @@ public class PlayerManager : MonoBehaviour
 
         playerAttack._canShoot = _canDamage;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Destroy")) {
+            Destroy(gameObject);
+        }   
+    }
     #endregion
 
     //Reduce Fuel by amount/1s
