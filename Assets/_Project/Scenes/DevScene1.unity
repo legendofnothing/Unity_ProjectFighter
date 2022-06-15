@@ -1267,7 +1267,7 @@ MonoBehaviour:
   shotgunBullet: {fileID: 5027569497055764640, guid: ef3b688ac350f9c43a923d96403dcc8b, type: 3}
   shotgunSpeed: 8
   shotgunFR: 0.35
-  shotgunDamage: 1.4
+  shotgunDamage: 2.4
   focusPoints:
   - {fileID: 759356873}
   - {fileID: 535806396}
@@ -1387,13 +1387,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300578051}
-  m_LocalRotation: {x: 0, y: 0, z: -0.21643952, w: 0.97629607}
+  m_LocalRotation: {x: 0, y: 0, z: -0.13052624, w: 0.9914449}
   m_LocalPosition: {x: 0.25, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 55909552}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
 --- !u!1 &1322848030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,13 +1721,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529916980}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2164396, w: 0.97629607}
+  m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
   m_LocalPosition: {x: -0.25, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 55909552}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
 --- !u!1 &1583373790
 GameObject:
   m_ObjectHideFlags: 0
