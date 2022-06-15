@@ -21,20 +21,24 @@ public class Pickup : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        switch (pickupIndex) {
-            case 0:
-                _pickupRepairKits.Value += 1;
-                Destroy(gameObject);
-                break;
-            case 1:
-                _pickupFuel.Value += 1;
-                Destroy(gameObject);
-                break;
-            case 2:
-                _pickupHeat.Value += 1;
-                Destroy(gameObject);
-                break;
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            switch (pickupIndex) {
+                case 0:
+                    _pickupRepairKits.Value += 1;
+                    Destroy(gameObject);
+                    break;
+                case 1:
+                    _pickupFuel.Value += 1;
+                    Destroy(gameObject);
+                    break;
+                case 2:
+                    _pickupHeat.Value += 1;
+                    Destroy(gameObject);
+                    break;
+            }
         }
+
+        Destroy(gameObject);
     }
     #endregion
 }

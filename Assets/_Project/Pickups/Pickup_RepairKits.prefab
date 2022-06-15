@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7186975141930848215}
   - component: {fileID: 7186975141930848208}
   - component: {fileID: -5240365124760925326}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pickup_RepairKits
   m_TagString: Untagged
   m_Icon: {fileID: 0}

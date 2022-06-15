@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8268900706049681710}
   - component: {fileID: 8268900706049681715}
   - component: {fileID: 4931737460811777489}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pickup_Fuel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
