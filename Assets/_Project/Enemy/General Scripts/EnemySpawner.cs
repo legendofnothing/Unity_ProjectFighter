@@ -44,11 +44,8 @@ public class EnemySpawner : MonoBehaviour
     
     private float _spawnTimer;
 
-    private EnemyBehaviour enemyBehaviour;
-
     #region Unity Methods
     void Start() {
-        enemyBehaviour = enemyToSpawn.GetComponent<EnemyBehaviour>();
     }
  
     void Update() {
@@ -57,14 +54,16 @@ public class EnemySpawner : MonoBehaviour
         if(Time.time > _spawnTimer) {
             _spawnTimer = Time.time + spawnRate;
 
-            Instantiate(enemyToSpawn, transform.position, transform.rotation);
-            PassValue();
+            var enemyInstance = Instantiate(enemyToSpawn, transform.position, transform.rotation);
+            PassValue(enemyInstance);
         }
     }
     #endregion
 
     //Pass Values Down, Insanely Inefficent 
-    void PassValue() {
+    void PassValue(GameObject enemyInstance) {
+        var enemyBehaviour = enemyInstance.GetComponent<EnemyBehaviour>();
+
         enemyBehaviour.GIMMICK_isLookAtPlayer = isLookAtPlayer;
         enemyBehaviour.GIMMICK_isRotateAround = isRotateAround;
         enemyBehaviour.GIMMICK_isMovingDown   = isMovingDown;
