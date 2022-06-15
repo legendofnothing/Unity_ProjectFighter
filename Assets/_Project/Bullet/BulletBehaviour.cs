@@ -10,6 +10,7 @@ public class BulletBehaviour : MonoBehaviour
      * Destroy bullet upon hitting certain objects, dealing damage where necessary
      * 
      */
+    public float timeTilDestroy;
 
     private float _damage;
 
@@ -25,6 +26,8 @@ public class BulletBehaviour : MonoBehaviour
         }
 
         _damage = playerAttack._damage; //Get damage from PlayerAttack class 
+
+        Destroy(gameObject, timeTilDestroy);
     }
 
     #region Unity Methods
