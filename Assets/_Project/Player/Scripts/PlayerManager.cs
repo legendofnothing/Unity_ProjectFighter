@@ -17,7 +17,6 @@ public class PlayerManager : MonoBehaviour
     public float playerHP;
     public float playerFuel;
     public AnimationClip Hit;
-    public AnimationClip Death;
 
     private float _timer = 0f;
     [HideInInspector] public bool _canDamage = true;
@@ -46,13 +45,14 @@ public class PlayerManager : MonoBehaviour
         //Making sure these values doesnt go to infinity and beyond
         if(_playerHP.Value <= 0) {
             _playerHP.Value = -1;
-            StartCoroutine(Die());
             _canDamage = false;
 
             var isDone = true;
 
             if (isDone) {
                 anim.SetBool("Die", true);
+                gameObject.GetComponent<PlayerController>().enabled = false;
+                gameObject.GetComponent<PlayerAttack>().enabled = false;
                 isDone = false;
             }
         }
@@ -103,15 +103,5 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(Hit.length);
 
         _canDamage = true;
-    }
-
-    //Die
-    IEnumerator Die() {
-        gameObject.GetComponent<PlayerController>().enabled = false;
-        gameObject.GetComponent<PlayerAttack>().enabled = false;
-
-        yield return new WaitForSeconds(Death.length);
-
-        Destroy(gameObject);
     }
 }
