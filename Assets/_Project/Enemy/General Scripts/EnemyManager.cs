@@ -18,9 +18,17 @@ public class EnemyManager : MonoBehaviour
     private float _currHP;
     private bool _isTouching;
 
+    private EnemyBehaviour enemyBehaviour;
+
+    private Animator anim;
+    [SerializeField] private AnimationClip Death;
     #region Unity Methods
     void Start() {
         _currHP = enemyHP;
+
+        anim = GetComponent<Animator>();
+
+        enemyBehaviour = GetComponent<EnemyBehaviour>();
     }
  
     void Update() {
@@ -32,7 +40,14 @@ public class EnemyManager : MonoBehaviour
         }
 
         if(_currHP <= 0) {
-            Destroy(gameObject);
+            StartCoroutine(Die());
+
+            var isDone = true;
+
+            if (isDone) {
+                anim.SetTrigger("Destroy");
+                isDone = false;
+            }
         }
     }
 
@@ -59,5 +74,14 @@ public class EnemyManager : MonoBehaviour
 
     public void TakeDamage(float amount) {
         _currHP -= amount;
+    }
+
+    private IEnumerator Die() {
+        enemyBehaviour.enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(Death.length);
+
+        Destroy(gameObject);
     }
 }
