@@ -50,6 +50,12 @@ public class BulletBehaviour : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        //Destroy Upon Hitting BossTurret
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Turret")) {
+            collision.GetComponent<TurretManager>().TakeDamage(_damage);
+            Destroy(gameObject);
+        }
     }
     #endregion
 }
