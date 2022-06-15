@@ -92,11 +92,14 @@ public class EnemyBehaviour : MonoBehaviour
     #region Gimmicks
     //Look at the player
     private void Look() {
-        var direction = (player.transform.position - transform.position).normalized;
 
-        //Rotate them to look at player
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Calculate angle by getting atan of direction.x and y and convert from Rad to Degree
-        rb.rotation = angle;
+        if(player != null) {
+            var direction = (player.transform.position - transform.position).normalized;
+
+            //Rotate them to look at player
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Calculate angle by getting atan of direction.x and y and convert from Rad to Degree
+            rb.rotation = angle;
+        }
     }
 
     //Rotate around itself _rotateSpeed / s
@@ -111,40 +114,42 @@ public class EnemyBehaviour : MonoBehaviour
 
     #region Shooting
     private void Shoot() {
-        //Shoot with Tracking Player
-        if (ATTACK_doesBulletTrackPlayer) {
-            var shootDir = (player.transform.position - transform.position).normalized;
+        if (player != null) {
+            //Shoot with Tracking Player
+            if (ATTACK_doesBulletTrackPlayer) {
+                var shootDir = (player.transform.position - transform.position).normalized;
 
-            //Shoot bullets per attackRate
-            if (Time.time > _attackTimer && _canAttack) {
-                _attackTimer = Time.time + ATTACK_attackRate;
+                //Shoot bullets per attackRate
+                if (Time.time > _attackTimer && _canAttack) {
+                    _attackTimer = Time.time + ATTACK_attackRate;
 
-                for (int i = 0; i < shootPoints.Length; i++) {
-                    GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
-                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * ATTACK_bulletSpeed, ForceMode2D.Impulse);
+                    for (int i = 0; i < shootPoints.Length; i++) {
+                        GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
+                        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootDir * ATTACK_bulletSpeed, ForceMode2D.Impulse);
+                    }
+
+                    _numOfBullets++;
                 }
-
-                _numOfBullets++;
             }
-        }
 
-        //Shoot without Tracking Player
-        else {
-            //Shoot bullets per attackRate
-            if (Time.time > _attackTimer && _canAttack) {
-                _attackTimer = Time.time + ATTACK_attackRate;
+            //Shoot without Tracking Player
+            else {
+                //Shoot bullets per attackRate
+                if (Time.time > _attackTimer && _canAttack) {
+                    _attackTimer = Time.time + ATTACK_attackRate;
 
-                for (int i = 0; i < shootPoints.Length; i++) {
-                    GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
-                    bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoints[i].transform.up * ATTACK_bulletSpeed, ForceMode2D.Impulse);
+                    for (int i = 0; i < shootPoints.Length; i++) {
+                        GameObject bulletInstance = Instantiate(enemyBullet, shootPoints[i].position, shootPoints[i].rotation);
+                        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoints[i].transform.up * ATTACK_bulletSpeed, ForceMode2D.Impulse);
+                    }
+
+                    _numOfBullets++;
                 }
-
-                _numOfBullets++;
             }
-        }
 
-        if (_numOfBullets >= ATTACK_maxBulletPerCycle) {
-            StartCoroutine(CycleReset(ATTACK_delayBetweenCycle));
+            if (_numOfBullets >= ATTACK_maxBulletPerCycle) {
+                StartCoroutine(CycleReset(ATTACK_delayBetweenCycle));
+            }
         }
     }
 
@@ -160,10 +165,12 @@ public class EnemyBehaviour : MonoBehaviour
     #endregion
 
     private void Chase() {
-        //Calculate distance from player to Enemy
-        var direction = (player.transform.position - transform.position).normalized;
+        if(player != null) {
+            //Calculate distance from player to Enemy
+            var direction = (player.transform.position - transform.position).normalized;
 
-        //Move to player
-        rb.velocity = new Vector2(direction.x, direction.y) * CHASE_chaseSpeed;
+            //Move to player
+            rb.velocity = new Vector2(direction.x, direction.y) * CHASE_chaseSpeed;
+        }
     }
 }

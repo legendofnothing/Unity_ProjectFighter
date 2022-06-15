@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayerManager : MonoBehaviour
 {
     private PlayerAttack playerAttack;
+    private Animator anim;
 
     public static PlayerManager playerManager { get; private set; }
 
@@ -15,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     [Header("Player Configs")]
     public float playerHP;
     public float playerFuel;
+    public AnimationClip Hit;
+    public AnimationClip Death;
 
     private float _timer = 0f;
     [HideInInspector] public bool _canDamage = true;
@@ -35,6 +38,7 @@ public class PlayerManager : MonoBehaviour
         _playerFuel.Value = playerFuel;
 
         playerAttack = GetComponent<PlayerAttack>();
+        anim = GetComponent<Animator>();
     }
  
     void Update() {
@@ -42,6 +46,15 @@ public class PlayerManager : MonoBehaviour
         //Making sure these values doesnt go to infinity and beyond
         if(_playerHP.Value <= 0) {
             _playerHP.Value = -1;
+            StartCoroutine(Die());
+            _canDamage = false;
+
+            var isDone = true;
+
+            if (isDone) {
+                anim.SetBool("Die", true);
+                isDone = false;
+            }
         }
 
         if (_playerFuel.Value <= 0) {
@@ -85,9 +98,20 @@ public class PlayerManager : MonoBehaviour
     //Invincible Frames
     IEnumerator IFrames() {
         _canDamage = false;
+        anim.SetTrigger("Hit");
 
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(Hit.length);
 
         _canDamage = true;
+    }
+
+    //Die
+    IEnumerator Die() {
+        gameObject.GetComponent<PlayerController>().enabled = false;
+        gameObject.GetComponent<PlayerAttack>().enabled = false;
+
+        yield return new WaitForSeconds(Death.length);
+
+        Destroy(gameObject);
     }
 }
