@@ -40,15 +40,7 @@ public class EnemyManager : MonoBehaviour
 
         if(_currHP <= 0) {
 
-            var isDone = true;
-
-            if (isDone) {
-                anim.SetTrigger("Destroy");
-                isDone = false;
-
-                enemyBehaviour.enabled = false;
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            }
+            Die();
         }
     }
 
@@ -75,5 +67,22 @@ public class EnemyManager : MonoBehaviour
 
     public void TakeDamage(float amount) {
         _currHP -= amount;
+    }
+
+    public void Die() {
+        var isDone = true;
+
+        if (isDone) {
+            anim.SetTrigger("Destroy");
+            isDone = false;
+
+            enemyBehaviour.enabled = false;
+            
+            if (!gameObject.GetComponent<BoxCollider2D>()) {
+                gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            }
+            
+            else gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 }

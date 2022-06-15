@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2481008732136364272}
   - component: {fileID: 403134032430463853}
   m_Layer: 8
-  m_Name: Enemy Shooing Variant 1 (SP)
+  m_Name: Enemy Shooing Variant 3 (SP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,6 @@ Transform:
   m_LocalPosition: {x: -8.14, y: 0.76106274, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2481008734147079856}
-  - {fileID: 2481008734047187823}
   - {fileID: 7236760562314566755}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,7 +81,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.5, y: 0.46}
   m_EdgeRadius: 0
 --- !u!114 &2481008732136364275
 MonoBehaviour:
@@ -97,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1e4cb7a812e604a8abcec1dfb56201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHP: 10
+  enemyHP: 5
   damageDealt: 10
 --- !u!114 &2481008732136364272
 MonoBehaviour:
@@ -126,9 +124,7 @@ MonoBehaviour:
   CHASE_chaseSpeed: 1.2
   CHASE_timeTilDestroy: 24
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
-  shootPoints:
-  - {fileID: 2481008734147079856}
-  - {fileID: 2481008734047187823}
+  shootPoints: []
 --- !u!95 &403134032430463853
 Animator:
   serializedVersion: 3
@@ -148,66 +144,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &2481008734047187820
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2481008734047187823}
-  m_Layer: 8
-  m_Name: Shootpoint 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2481008734047187823
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2481008734047187820}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: -0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2481008732136364273}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!1 &2481008734147079857
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2481008734147079856}
-  m_Layer: 8
-  m_Name: Shootpoint 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2481008734147079856
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2481008734147079857}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2481008732136364273}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &8082715025904567342
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,13 +168,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8082715025904567342}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2481008732136364273}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &4175625677766319038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -279,7 +215,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4360848110051196621, guid: b2261e8a27f81d44b999030c5ee868f1, type: 3}
+  m_Sprite: {fileID: 1008480329888372701, guid: b2261e8a27f81d44b999030c5ee868f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -49,6 +49,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject enemyBullet;
     [SerializeField] private Transform[] shootPoints;
+
+    private EnemyManager enemyManager;
     #endregion
 
     #region Unity Methods
@@ -61,9 +63,7 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log("This is the 2616th time you forgot to add the Player in, or idk case SENSITIVE!!");
         }
 
-        if (CHASE_isChasing) {
-            Destroy(gameObject, CHASE_timeTilDestroy);
-        }
+        enemyManager = GetComponent<EnemyManager>();
     }
 
     void Update() {
@@ -171,6 +171,14 @@ public class EnemyBehaviour : MonoBehaviour
 
             //Move to player
             rb.velocity = new Vector2(direction.x, direction.y) * CHASE_chaseSpeed;
+
+            StartCoroutine(ChaseCoroutine());
         }
+    }
+
+    IEnumerator ChaseCoroutine() {
+        yield return new WaitForSeconds(CHASE_timeTilDestroy);
+
+        enemyManager.Die();
     }
 }
