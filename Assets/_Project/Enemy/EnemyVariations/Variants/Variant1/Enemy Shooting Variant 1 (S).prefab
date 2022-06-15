@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
-  minSpawnRate: 10
-  maxSpawnRate: 15
+  minSpawnRate: 15
+  maxSpawnRate: 20
   isLookAtPlayer: 1
   isRotateAround: 0
   rotateSpeed: 2
