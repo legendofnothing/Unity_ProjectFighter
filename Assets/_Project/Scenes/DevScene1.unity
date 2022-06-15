@@ -2238,6 +2238,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5102768939373961356, guid: 75a4294f03b146c4e8d6bb54725ecad9, type: 3}
+      propertyPath: isChasing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102768939373961356, guid: 75a4294f03b146c4e8d6bb54725ecad9, type: 3}
       propertyPath: chaseSpeed
       value: 1.2
       objectReference: {fileID: 0}
@@ -2247,7 +2251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102768939373961357, guid: 75a4294f03b146c4e8d6bb54725ecad9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a4294f03b146c4e8d6bb54725ecad9, type: 3}
