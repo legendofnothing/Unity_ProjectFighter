@@ -13,6 +13,9 @@ public class AsteroidBehaviour : MonoBehaviour
     [Header("Enemy Config")]
     public float enemyHP;
     public float damageDealt;
+    public AnimationClip Death;
+
+    private Animator anim;
 
     private float _damageTimer;
     private float _currHP;
@@ -21,6 +24,7 @@ public class AsteroidBehaviour : MonoBehaviour
     #region Unity Methods
     void Start() {
         _currHP = enemyHP;
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -33,7 +37,15 @@ public class AsteroidBehaviour : MonoBehaviour
 
         //On HP = 0
         if (_currHP <= 0) {
-            Destroy(gameObject);
+            StartCoroutine(Die());
+
+            var isDone = true;
+
+            if (isDone) {
+                anim.SetTrigger("Destroy");
+
+                isDone = false;
+            }
         }
     }
 
@@ -59,5 +71,13 @@ public class AsteroidBehaviour : MonoBehaviour
 
     public void TakeDamage(float amount) {
         _currHP -= amount;
+    }
+
+    IEnumerator Die() {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(Death.length);
+
+        Destroy(gameObject);
     }
 }

@@ -83,7 +83,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Shooing Variant 1 (SP)
+  m_Name: EnemyAnim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Destroy

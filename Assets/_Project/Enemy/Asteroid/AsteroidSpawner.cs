@@ -19,7 +19,8 @@ public class AsteroidSpawner : MonoBehaviour
     [Space]
     public float minSpread;
     public float maxSpread;
-
+    [Space]
+    public Sprite[] asteroidVariants;
     private float _spawnTimer;
 
     #region Unity Methods
