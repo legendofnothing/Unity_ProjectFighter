@@ -72,14 +72,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ac118f2cf0448439cff13f5e78e1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 1.4
-  bulletSpeed: 1.2
+  attackRate: 0.8
+  bulletSpeed: 2
   shootPoints:
   - {fileID: 3136200426788384036}
   - {fileID: 3136200426782524127}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
-  maxBulletPerCycle: 12
-  delayBetweenCycle: 4.5
+  maxBulletPerCycle: 24
+  delayBetweenCycle: 8
 --- !u!114 &3136200424891483074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 50
+  turretHP: 120
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200424891483072
 BoxCollider2D:
@@ -625,7 +625,7 @@ MonoBehaviour:
   - {fileID: 3136200426245570722}
   - {fileID: 3136200425919706560}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
-  maxBulletPerCycle: 4
+  maxBulletPerCycle: 8
   delayBetweenCycle: 6
 --- !u!114 &3136200425110593064
 MonoBehaviour:
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 25
+  turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200425110593046
 BoxCollider2D:
@@ -839,12 +839,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 1.4
-  bulletSpeed: 0.8
+  bulletSpeed: 1.2
   shootPoints:
   - {fileID: 3136200425890448119}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
   maxBulletPerCycle: 2
-  delayBetweenCycle: 6.5
+  delayBetweenCycle: 2.5
 --- !u!114 &3136200425564554149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 5
+  turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200425564554147
 BoxCollider2D:
@@ -975,12 +975,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 1.2
-  bulletSpeed: 1.2
+  bulletSpeed: 4
   shootPoints:
   - {fileID: 3136200426735202677}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
   maxBulletPerCycle: 1
-  delayBetweenCycle: 2.5
+  delayBetweenCycle: 9.8
 --- !u!114 &3136200425639817847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 15
+  turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200425639817845
 BoxCollider2D:
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   - {fileID: 3136200424907984725}
   - {fileID: 3136200426055845413}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
-  maxBulletPerCycle: 4
+  maxBulletPerCycle: 8
   delayBetweenCycle: 6
 --- !u!114 &3136200426045869022
 MonoBehaviour:
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 25
+  turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200426045869020
 BoxCollider2D:
@@ -1765,12 +1765,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 1.4
-  bulletSpeed: 0.8
+  bulletSpeed: 1.2
   shootPoints:
   - {fileID: 3136200426354132289}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
   maxBulletPerCycle: 2
-  delayBetweenCycle: 6.5
+  delayBetweenCycle: 2.5
 --- !u!114 &3136200426319647651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 5
+  turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200426319647649
 BoxCollider2D:
@@ -2280,12 +2280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 1.2
-  bulletSpeed: 1.2
+  bulletSpeed: 4
   shootPoints:
   - {fileID: 3136200425815573861}
   enemyBullet: {fileID: 5864140891250121042, guid: 63568def2b43aed49be920dc994bef46, type: 3}
   maxBulletPerCycle: 1
-  delayBetweenCycle: 2.5
+  delayBetweenCycle: 9.8
 --- !u!114 &3136200426558063757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e37f5cc9994940943f2dc4822099c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHP: 15
+  turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
 --- !u!61 &3136200426558063754
 BoxCollider2D:
@@ -2483,7 +2483,7 @@ SpriteRenderer:
   m_SortingLayerID: -251537437
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -6812205697922530811, guid: afb5b4c059ff55a468936b2df4185feb, type: 3}
+  m_Sprite: {fileID: -495444712836444916, guid: afb5b4c059ff55a468936b2df4185feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
