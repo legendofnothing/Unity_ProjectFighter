@@ -1401,7 +1401,7 @@ MonoBehaviour:
   _playerHP: {fileID: 11400000, guid: 5a0dd1d9bcab5ce4cb6ce5b6ccd72af6, type: 2}
   _playerFuel: {fileID: 11400000, guid: ec9f6ab03b031ab41aa441b3d7c75722, type: 2}
   _playerOverheat: {fileID: 11400000, guid: 02fd165a92a0ec445892815a12d01ced, type: 2}
-  hpAdd: 10
+  hpAdd: 30
   fuelAdd: 50
   overheatAdd: 25
 --- !u!95 &1225824933
