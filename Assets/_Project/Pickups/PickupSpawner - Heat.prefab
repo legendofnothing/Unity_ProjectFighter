@@ -47,6 +47,6 @@ MonoBehaviour:
   - {fileID: 7186975141930848212, guid: 4e6492d56a0cbd84495a256241188251, type: 3}
   - {fileID: 8268900706049681711, guid: 784df88146438b8499a964779662edd2, type: 3}
   - {fileID: 5616136666245958687, guid: ed8b025a9bc00a54b90d6f6877c52471, type: 3}
-  minSpawnRate: 10
-  maxSpawnRate: 15
+  minSpawnRate: 35
+  maxSpawnRate: 65
   pickupIndex: 2
