@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private FloatVar _playerHP;
     [SerializeField] private FloatVar _playerFuel;
+    [SerializeField] private IntVar _score;
 
     [Header("Player Configs")]
     public float playerHP;
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour
 
         _playerHP.Value = playerHP;
         _playerFuel.Value = playerFuel;
+        _score.Value = 0;
     }
 
     void Start() {
@@ -93,6 +95,10 @@ public class PlayerManager : MonoBehaviour
             _playerHP.Value -= amount;
             StartCoroutine(IFrames());
         }
+    }
+
+    public void AddScore(float amount) {
+        _score.Value += amount;
     }
 
     //Invincible Frames

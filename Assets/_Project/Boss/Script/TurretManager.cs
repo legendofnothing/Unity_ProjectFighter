@@ -6,6 +6,7 @@ public class TurretManager : MonoBehaviour
 {
     public float turretHP;
     public AnimationClip bossStart;
+    public float scoreToAdd;
 
     private float currHP;
     private Animator anim;
@@ -63,6 +64,7 @@ public class TurretManager : MonoBehaviour
         if (_hasBossStart) {
             currHP -= dmg;
             anim.SetTrigger("Hit");
+            PlayerManager.playerManager.AddScore(scoreToAdd);
         }
     }
 

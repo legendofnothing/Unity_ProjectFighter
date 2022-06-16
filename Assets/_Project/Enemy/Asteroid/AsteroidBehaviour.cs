@@ -13,6 +13,7 @@ public class AsteroidBehaviour : MonoBehaviour
     [Header("Enemy Config")]
     public float enemyHP;
     public float damageDealt;
+    public float scoreToAdd;
 
     private Animator anim;
 
@@ -69,5 +70,6 @@ public class AsteroidBehaviour : MonoBehaviour
 
     public void TakeDamage(float amount) {
         _currHP -= amount;
+        PlayerManager.playerManager.AddScore(scoreToAdd);
     }
 }

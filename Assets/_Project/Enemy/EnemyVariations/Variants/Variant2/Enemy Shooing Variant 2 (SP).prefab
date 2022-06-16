@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 15
   damageDealt: 10
+  scoreToAdd: 30
 --- !u!114 &2481008732136364272
 MonoBehaviour:
   m_ObjectHideFlags: 0

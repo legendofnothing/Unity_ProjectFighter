@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [Header("Enemy Config")]
     public float enemyHP;
     public float damageDealt;
+    public float scoreToAdd;
 
     private float _damageTimer;
     private float _currHP;
@@ -67,6 +68,7 @@ public class EnemyManager : MonoBehaviour
 
     public void TakeDamage(float amount) {
         _currHP -= amount;
+        PlayerManager.playerManager.AddScore(scoreToAdd);
     }
 
     public void Die() {

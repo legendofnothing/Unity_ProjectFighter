@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 120
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 100
 --- !u!61 &3136200424891483072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -641,6 +642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 75
 --- !u!61 &3136200425110593046
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -859,6 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 25
 --- !u!61 &3136200425564554147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -995,6 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 50
 --- !u!61 &3136200425639817845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1424,6 +1428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 75
 --- !u!61 &3136200426045869020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1785,6 +1790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 25
 --- !u!61 &3136200426319647649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2300,6 +2306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
+  scoreToAdd: 50
 --- !u!61 &3136200426558063754
 BoxCollider2D:
   m_ObjectHideFlags: 0

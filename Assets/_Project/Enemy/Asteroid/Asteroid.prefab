@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 10
   damageDealt: 10
-  Death: {fileID: 7400000, guid: 2c63d6eb685452e4da213b78fd9db612, type: 2}
+  scoreToAdd: 5
 --- !u!50 &4275199244746736782
 Rigidbody2D:
   serializedVersion: 4

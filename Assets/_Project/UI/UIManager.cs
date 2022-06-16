@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private IntVar pickupRepair;
     [SerializeField] private IntVar pickupFuel;
     [SerializeField] private IntVar pickupHeat;
+    [Space]
+    [SerializeField] private IntVar score;
 
     [Space]
     public Text hpDisplay;
@@ -33,6 +35,8 @@ public class UIManager : MonoBehaviour
     public Text pickupDisplay1;
     public Text pickupDisplay2;
     public Text pickupDisplay3;
+    [Space]
+    public Text scoreDisplay;
 
     private float displayHPprec;
     private float displayFuelprec;
@@ -68,6 +72,8 @@ public class UIManager : MonoBehaviour
         DisplayPickups(pickupDisplay1, pickupRepair);
         DisplayPickups(pickupDisplay2, pickupFuel);
         DisplayPickups(pickupDisplay3, pickupHeat);
+
+        scoreDisplay.text = score.Value.ToString();
     }
 
     private void DisplayPrecent(Text display, float prec, FloatVar value, string word) {
