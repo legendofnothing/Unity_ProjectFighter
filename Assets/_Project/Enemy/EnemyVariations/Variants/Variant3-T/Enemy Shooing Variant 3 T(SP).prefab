@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1e4cb7a812e604a8abcec1dfb56201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHP: 45
+  enemyHP: 35
   damageDealt: 10
 --- !u!114 &2481008732136364272
 MonoBehaviour:
