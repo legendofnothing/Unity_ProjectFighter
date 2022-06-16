@@ -148,7 +148,7 @@ public class PlayerAttack : MonoBehaviour
         _fireRate      -= 0.1f;
         _canProduceHeat = false;
 
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(3.4f);
 
         _fireRate       = prevFR;
         _canProduceHeat = true;

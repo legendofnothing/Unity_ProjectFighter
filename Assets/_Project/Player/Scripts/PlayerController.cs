@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public float overheatTransferAmount;
     public float delayToNextTransfer;
 
+    [Space]
+    public GameObject hitBox1;
+    public GameObject hitBox2;
+
     private float _speed;
 
     private bool _canTransfer = true;
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
 
         _speed = normalSpeed;
+        hitBox2.SetActive(false);
     }
 
     private void Update() {
@@ -58,11 +63,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && _playerFuel.Value > 0) {
             _speed = accelSpeed;
 
+            hitBox1.SetActive(false);
+            hitBox2.SetActive(true);
+
             _isAcceling = true; 
         }
 
         else if (Input.GetKeyUp(KeyCode.LeftShift)) {
             _speed = normalSpeed;
+
+            hitBox1.SetActive(true);
+            hitBox2.SetActive(false);
 
             _isAcceling = false;
         }
