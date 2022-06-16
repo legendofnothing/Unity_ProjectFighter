@@ -30,12 +30,12 @@ public class PlayerManager : MonoBehaviour
         else {
             playerManager = this;
         }
+
+        _playerHP.Value = playerHP;
+        _playerFuel.Value = playerFuel;
     }
 
     void Start() {
-        _playerHP.Value = playerHP;
-        _playerFuel.Value = playerFuel;
-
         playerAttack = GetComponent<PlayerAttack>();
         anim = GetComponent<Animator>();
     }

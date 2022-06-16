@@ -63,10 +63,13 @@ public class PlayerAttack : MonoBehaviour
     }
 
     #region Unity Methods
+
+    private void Awake() {
+        _overheat.Value = 0;
+    }
+
     private void Start() {
         ChangeBulletType(defaultBullet, defaultSpeed, defaultFR, defaultPoints,defaultDamage);
-
-        _overheat.Value = 0;
 
         anim = GetComponent<Animator>();
     }

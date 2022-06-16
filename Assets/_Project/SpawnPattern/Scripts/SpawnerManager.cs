@@ -16,18 +16,18 @@ public class SpawnerManager : MonoBehaviour
 
     IEnumerator LevelSequence() {
         yield return new WaitForSeconds(spawnerDuration[0]);
-        Instantiate(spawners[0], transform.position, transform.rotation);
+        var spawner1 = Instantiate(spawners[0], transform.position, transform.rotation);
 
         yield return new WaitForSeconds(spawnerDuration[1]);
-        Instantiate(spawners[1], transform.position, transform.rotation);
-        spawners[0].SetActive(false);
+        var spawner2 = Instantiate(spawners[1], transform.position, transform.rotation);
+        Destroy(spawner1);
 
         yield return new WaitForSeconds(spawnerDuration[2]);
-        Instantiate(spawners[2], transform.position, transform.rotation);
-        spawners[1].SetActive(false);
+        var spawner3 = Instantiate(spawners[2], transform.position, transform.rotation);
+        Destroy(spawner2);
 
         yield return new WaitForSeconds(spawnerDuration[3]);
-        Instantiate(spawners[3], transform.position, transform.rotation);
-        spawners[2].SetActive(false);
+        var spawner4 = Instantiate(spawners[3], transform.position, transform.rotation);
+        Destroy(spawner3);
     }
 }
