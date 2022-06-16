@@ -18,9 +18,11 @@ public class PlayerManager : MonoBehaviour
     public float playerHP;
     public float playerFuel;
     public AnimationClip Hit;
+    public GameObject damagedSprite;
 
     private float _timer = 0f;
     [HideInInspector] public bool _canDamage = true;
+    [HideInInspector] public bool _hasDied;
 
     #region Unity Methods
     private void Awake() {
@@ -40,6 +42,7 @@ public class PlayerManager : MonoBehaviour
     void Start() {
         playerAttack = GetComponent<PlayerAttack>();
         anim = GetComponent<Animator>();
+        damagedSprite.SetActive(false);
     }
  
     void Update() {
@@ -55,6 +58,7 @@ public class PlayerManager : MonoBehaviour
                 anim.SetBool("Die", true);
                 gameObject.GetComponent<PlayerController>().enabled = false;
                 gameObject.GetComponent<PlayerAttack>().enabled = false;
+                _hasDied = true;
                 isDone = false;
             }
         }
@@ -105,8 +109,11 @@ public class PlayerManager : MonoBehaviour
     IEnumerator IFrames() {
         _canDamage = false;
         anim.SetTrigger("Hit");
+        damagedSprite.SetActive(true);
 
         yield return new WaitForSeconds(Hit.length);
+
+        damagedSprite.SetActive(false);
 
         _canDamage = true;
     }

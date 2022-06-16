@@ -8,10 +8,35 @@ public class UIManager : MonoBehaviour
     #region Unity Methods
     void Start() {
         StartPlayUI();
+        StartUI();
     }
  
     void Update() {
         DisplayStats();
+
+        if (PlayerManager.playerManager._hasDied) {
+            StartCoroutine(InitLoseUI());
+        }
+    }
+    #endregion
+
+    #region UIs
+    public GameObject LoseUI;
+    public Text scoreDisplayLose;
+
+    private void StartUI() {
+        LoseUI.SetActive(false);
+    }
+
+    private IEnumerator InitLoseUI() {
+        scoreDisplayLose.text = "Score: " + score.Value.ToString();
+
+        yield return new WaitForSeconds(2.4f);
+
+        LoseUI.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0;
     }
     #endregion
 
