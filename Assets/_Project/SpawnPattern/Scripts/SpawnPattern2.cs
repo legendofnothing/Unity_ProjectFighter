@@ -20,7 +20,7 @@ public class SpawnPattern2 : MonoBehaviour {
     #endregion
 
     IEnumerator Sequence() {
-
+        yield return null;
     }
 
     private void SetSpawner(int index) {
