@@ -76,7 +76,7 @@ public class UIManager : MonoBehaviour
             fuelDisplay.text = "OUT";
         }
 
-        else fuelDisplay.text = prec1.ToString("0") + "%";
+        else fuelDisplay.text = prec2.ToString("0") + "%";
     }
     #endregion
 

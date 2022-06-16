@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (_isAcceling) {
-            playerManager.ReduceFuel(2.8f);
+            playerManager.ReduceFuel(5.8f);
         }
 
         if(_playerFuel.Value <= 0) {

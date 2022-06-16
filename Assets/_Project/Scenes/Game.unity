@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _overheat: {fileID: 11400000, guid: 02fd165a92a0ec445892815a12d01ced, type: 2}
   overheatCap: 100
-  overheatIncreaseAmount: 4.7
+  overheatIncreaseAmount: 2.8
   defaultPoints:
   - {fileID: 973812699}
   - {fileID: 1263966244}
