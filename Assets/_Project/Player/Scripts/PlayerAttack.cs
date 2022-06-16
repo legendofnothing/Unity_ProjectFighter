@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
     private GameObject _bullet;
     private Transform[] _shootPoints;
 
-    private WEAPONTYPES _weaponIndex = 0;
+    [HideInInspector] public int _weaponIndex = 0;
 
     //Overheat Related
     private float _overheatTimer;
@@ -58,8 +58,7 @@ public class PlayerAttack : MonoBehaviour
 
         DEFAULT = 0,
         SHOTGUN = 1,
-        FOCUS   = 2,
-        SPREAD  = 3,
+        SIDE    = 2,
     }
 
     #region Unity Methods
@@ -103,17 +102,17 @@ public class PlayerAttack : MonoBehaviour
     private void ChangeWeapon() {
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             ChangeBulletType(defaultBullet, defaultSpeed, defaultFR, defaultPoints, defaultDamage);
-            _weaponIndex = WEAPONTYPES.DEFAULT;
+            _weaponIndex = (int)WEAPONTYPES.DEFAULT;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             ChangeBulletType(shotgunBullet, shotgunSpeed, shotgunFR, shotgunPoints, shotgunDamage);
-            _weaponIndex = WEAPONTYPES.SHOTGUN; 
+            _weaponIndex = (int)WEAPONTYPES.SHOTGUN; 
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
             ChangeBulletType(focusBullet, focusSpeed, focusFR, focusPoints, focusDamage);
-            _weaponIndex = WEAPONTYPES.FOCUS;
+            _weaponIndex = (int)WEAPONTYPES.SIDE;
         }
     }
 

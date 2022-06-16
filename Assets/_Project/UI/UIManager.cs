@@ -37,13 +37,25 @@ public class UIManager : MonoBehaviour
     public Text pickupDisplay3;
     [Space]
     public Text scoreDisplay;
+    public GameObject[] weaponDisplay;
 
     private float displayHPprec;
     private float displayFuelprec;
+    private GameObject player;
+    private PlayerAttack playerAttack;
 
     private void StartPlayUI() {
         displayHPprec = playerHP.Value;
         displayFuelprec = playerFuel.Value;
+
+        player = GameObject.Find("Player");
+
+        if (player != null) {
+            playerAttack = player.GetComponent<PlayerAttack>();
+        }
+
+        else
+            return;
     }
 
     private void DisplayStats() {
@@ -74,6 +86,10 @@ public class UIManager : MonoBehaviour
         DisplayPickups(pickupDisplay3, pickupHeat);
 
         scoreDisplay.text = score.Value.ToString();
+
+        if(player != null) {
+            DisplayWeapons(playerAttack._weaponIndex);
+        }
     }
 
     private void DisplayPrecent(Text display, float prec, FloatVar value, string word) {
@@ -107,6 +123,17 @@ public class UIManager : MonoBehaviour
         else {
             display.text = "x" + pickups.Value;
             display.color = Color.white;
+        }
+    }
+
+    private void DisplayWeapons(int index) {
+        for (int i = 0; i < weaponDisplay.Length; i++) {
+            if (i == index) {
+                weaponDisplay[i].SetActive(true);
+            }
+
+            else
+                weaponDisplay[i].SetActive(false);
         }
     }
 
