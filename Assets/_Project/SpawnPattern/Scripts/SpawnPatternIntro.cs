@@ -43,9 +43,6 @@ public class SpawnPatternIntro : MonoBehaviour
 
         yield return new WaitForSeconds(10f);
 
-        DeactivateSpawner(0);
-        DeactivateSpawner(1);
-
         SetSpawner(2);
         SetSpawner(3);
         SetSpawner(4);
@@ -54,36 +51,20 @@ public class SpawnPatternIntro : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        DeactivateSpawner(2);
-        DeactivateSpawner(3);
-        DeactivateSpawner(4);
-        DeactivateSpawner(5);
-        DeactivateSpawner(6);
-
         SetSpawner(7);
         SetSpawner(8);
 
         yield return new WaitForSeconds(8f);
-
-        DeactivateSpawner(7);
-        DeactivateSpawner(8);
 
         SetSpawner(9);
         SetSpawner(10);
 
         yield return new WaitForSeconds(8f);
 
-        DeactivateSpawner(9);
-        DeactivateSpawner(10);
-
         SetSpawner(11);
         SetSpawner(12);
         SetSpawner(13);
 
         yield return new WaitForSeconds(8f);
-
-        DeactivateSpawner(11);
-        DeactivateSpawner(12);
-        DeactivateSpawner(13);
     }
 }
