@@ -19,8 +19,8 @@ TagManager:
   - EnemyBullet
   - Turret
   - Pickup
-  - 
-  - 
+  - Background
+  - PostProcessing
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 909522625
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

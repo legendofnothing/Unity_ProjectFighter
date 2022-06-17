@@ -30,7 +30,7 @@ public class SpawnerManager : MonoBehaviour
         yield return new WaitForSeconds(15f);
         var spawner3 = Instantiate(spawners[2], transform.position, transform.rotation);
 
-        yield return new WaitForSeconds(spawnerDuration[1] - 15f);
+        yield return new WaitForSeconds(spawnerDuration[3] - 15f);
         Destroy(spawner3);
 
         yield return new WaitForSeconds(15f);
