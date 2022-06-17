@@ -101,6 +101,8 @@ public class UIManager : MonoBehaviour
         scoreDisplayWin.text = "Score: " + score.Value.ToString(); 
         highScoreDisplayWin.text = "Highscore: " + highscore.Value.ToString();
 
+        SetRank();
+
         yield return new WaitForSeconds(0.2f);
 
         Time.timeScale = 0;
