@@ -36,19 +36,39 @@ public class UIManager : MonoBehaviour
                 highscore.Value = score.Value;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (_isPausing) {
+                Pause(1, false);
+            }
+
+            else Pause(0, true);
+        }
     }
     #endregion
 
     #region UIs
     [Space]
     public GameObject LoseUI;
+    public GameObject PauseUI;
     public Text scoreDisplayLose;
     public Text highScoreDisplay;
 
-    private int oldHighscore;
+    private bool _isPausing;
 
     private void StartUI() {
         LoseUI.SetActive(false);
+        PauseUI.SetActive(false);
+
+        Time.timeScale = 1;
+    }
+
+    private void Pause(int scale, bool state) {
+        Time.timeScale = scale;
+
+        PauseUI.SetActive(state);
+
+        _isPausing = state;
     }
 
     private IEnumerator InitLoseUI() {
