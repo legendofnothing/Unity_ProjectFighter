@@ -5676,9 +5676,9 @@ MonoBehaviour:
   - {fileID: 8377110201602045366, guid: b49a2a61ac345f04f8180976b1e58afa, type: 3}
   spawnerDuration:
   - 5
-  - 30
-  - 100
-  - 100
+  - 45
+  - 120
+  - 120
 --- !u!1 &1583373790
 GameObject:
   m_ObjectHideFlags: 0
