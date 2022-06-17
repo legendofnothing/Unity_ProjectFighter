@@ -86,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
 
     #region Inputs
     private void Shoot() {
-        if(Input.GetKey(KeyCode.J) && Time.time > _lastFireTime && _canShoot) {
+        if(Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime && _canShoot) {
             _lastFireTime = Time.time + _fireRate;
 
             for (int i = 0; i < _shootPoints.Length; i++) {
