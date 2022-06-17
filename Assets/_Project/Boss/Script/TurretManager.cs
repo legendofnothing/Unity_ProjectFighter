@@ -17,7 +17,10 @@ public class TurretManager : MonoBehaviour
 
     private TurretBehaviour turretBehaviour;
 
+    [SerializeField] private FloatVar bossHP;
+
     #region Unity Methods
+
     void Start() {
         currHP = turretHP;
         anim = GetComponent<Animator>();
@@ -63,6 +66,7 @@ public class TurretManager : MonoBehaviour
     public void TakeDamage(float dmg) {
         if (_hasBossStart) {
             currHP -= dmg;
+            bossHP.Value -= dmg;
             anim.SetTrigger("Hit");
             PlayerManager.playerManager.AddScore(scoreToAdd);
         }

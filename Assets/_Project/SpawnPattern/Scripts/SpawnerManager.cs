@@ -9,11 +9,17 @@ public class SpawnerManager : MonoBehaviour
     public GameObject[] spawners;
     public float[] spawnerDuration;
 
-
+    private GameObject bossInstance;
+    [SerializeField] private FloatVar bossHP;
     private void Start() {
         StartCoroutine(LevelSequence());
     }
 
+    private void Update() {
+        if(bossHP.Value <= 0) {
+            Destroy(bossInstance);
+        }
+    }
     IEnumerator LevelSequence() {
         yield return new WaitForSeconds(spawnerDuration[0]);
         var spawner1 = Instantiate(spawners[0], transform.position, transform.rotation);
@@ -34,6 +40,6 @@ public class SpawnerManager : MonoBehaviour
         Destroy(spawner3);
 
         yield return new WaitForSeconds(15f);
-        var spawner4 = Instantiate(spawners[3], transform.position, transform.rotation);
+        bossInstance = Instantiate(spawners[3], transform.position, transform.rotation);
     }
 }

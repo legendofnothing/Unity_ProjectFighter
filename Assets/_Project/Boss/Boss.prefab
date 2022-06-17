@@ -95,6 +95,7 @@ MonoBehaviour:
   turretHP: 120
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 100
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200424891483072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -643,6 +644,7 @@ MonoBehaviour:
   turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 75
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200425110593046
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -862,6 +864,7 @@ MonoBehaviour:
   turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 25
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200425564554147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -999,6 +1002,7 @@ MonoBehaviour:
   turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 50
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200425639817845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1429,6 +1433,7 @@ MonoBehaviour:
   turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 75
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200426045869020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1791,6 +1796,7 @@ MonoBehaviour:
   turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 25
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200426319647649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2091,6 +2097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3136200426464074769}
   - component: {fileID: 3136200426464074768}
+  - component: {fileID: 3746076159792465243}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2133,6 +2140,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3746076159792465243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136200426464074782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3664d1bde572a1f4eb646beabd486e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turrets:
+  - {fileID: 3136200424891483084}
+  - {fileID: 3136200425110593042}
+  - {fileID: 3136200426045869016}
+  - {fileID: 3136200425639817841}
+  - {fileID: 3136200426558063862}
+  - {fileID: 3136200426319647661}
+  - {fileID: 3136200425564554159}
+  _bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!1 &3136200426555837771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,6 +2335,7 @@ MonoBehaviour:
   turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 50
+  bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200426558063754
 BoxCollider2D:
   m_ObjectHideFlags: 0

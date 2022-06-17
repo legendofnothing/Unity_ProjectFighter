@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [Space]
     [SerializeField] private IntVar score;
     [SerializeField] private IntVar highscore;
+    [SerializeField] private FloatVar bossHP;
 
     #endregion
 
@@ -45,6 +46,10 @@ public class UIManager : MonoBehaviour
 
             else Pause(0, true);
         }
+
+        if(bossHP.Value <= 0) {
+            StartCoroutine(InitWinUI());
+        }
     }
     #endregion
 
@@ -52,14 +57,21 @@ public class UIManager : MonoBehaviour
     [Space]
     public GameObject LoseUI;
     public GameObject PauseUI;
+    public GameObject WinUI;
+
     public Text scoreDisplayLose;
     public Text highScoreDisplay;
+
+    public Text scoreDisplayWin;
+    public Text highScoreDisplayWin;
+    public Text rank;
 
     private bool _isPausing;
 
     private void StartUI() {
         LoseUI.SetActive(false);
         PauseUI.SetActive(false);
+        WinUI.SetActive(false);
 
         Time.timeScale = 1;
     }
@@ -82,6 +94,42 @@ public class UIManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
+    }
+
+    private IEnumerator InitWinUI() {
+        WinUI.SetActive(true);
+        scoreDisplayWin.text = "Score: " + score.Value.ToString(); 
+        highScoreDisplayWin.text = "Highscore: " + highscore.Value.ToString();
+
+        yield return new WaitForSeconds(0.2f);
+
+        Time.timeScale = 0;
+    }
+
+    private void SetRank() {
+        if ( score.Value > 24999) {
+            rank.text = "S"; rank.color = Color.yellow;
+        }
+
+        else if (score.Value < 24999 && score.Value > 19999) {
+            rank.text = "A"; rank.color = Color.green;
+        }
+
+        else if (score.Value < 19999 && score.Value > 14999) {
+            rank.text = "B"; rank.color = Color.blue;
+        }
+
+        else if (score.Value < 14999 && score.Value > 9999) {
+            rank.text = "C"; rank.color = Color.white;
+        }
+
+        else if (score.Value < 9999 && score.Value > 3999) {
+            rank.text = "D"; rank.color = Color.grey;
+        }
+
+        else if (score.Value < 3999) {
+            rank.text = "F"; rank.color = Color.red;
+        }
     }
     #endregion
 
