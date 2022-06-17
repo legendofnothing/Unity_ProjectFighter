@@ -56,8 +56,11 @@ public class UIManager : MonoBehaviour
             else Pause(0, true);
         }
 
-        if(bossHP.Value <= 0 && spawnerManager.hasStarted) {
-            StartCoroutine(InitWinUI());
+        if(gameManager != null) {
+            if(bossHP.Value <= 0 && spawnerManager.hasStarted) {
+
+                StartCoroutine(InitWinUI());
+            }
         }
     }
     #endregion

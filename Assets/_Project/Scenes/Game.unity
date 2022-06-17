@@ -123,6 +123,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &113003180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 113003181}
+  - component: {fileID: 113003183}
+  - component: {fileID: 113003182}
+  m_Layer: 5
+  m_Name: Text (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &113003181
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113003180}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7175664928106371371}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -171.00397}
+  m_SizeDelta: {x: 694.91, y: -4.287918}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &113003182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113003180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7458911, b: 0.051886797, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c34f314135707c04cae85efefc10bab0, type: 3}
+    m_FontSize: 35
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 65
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Objective: Locate and destroy enemy facility '
+--- !u!222 &113003183
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113003180}
+  m_CullTransparentMesh: 1
 --- !u!1 &346117057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6677260269971410827, guid: 59ab28b6ba9281547bfc12cb89942cff, type: 3}
@@ -466,5 +545,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7175664928583051836, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+      propertyPath: m_Text
+      value: '> Loaded
+
+        > Welcome to battleSys v1.12
+
+        > youtube.com/watch?v=qxeokP0n6V0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175664928583051839, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 266.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175664928583051839, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175664928583051839, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -330.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175664928583051839, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -183.51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+--- !u!224 &7175664928106371371 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7175664927809262677, guid: 8b010570ea31b284dbf4a9caa932cc43, type: 3}
+  m_PrefabInstance: {fileID: 7175664928106371370}
+  m_PrefabAsset: {fileID: 0}
