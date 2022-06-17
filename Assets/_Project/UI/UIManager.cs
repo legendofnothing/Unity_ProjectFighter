@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -195,6 +196,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Buttons
+    public void Pausing() {
+        Pause(0, true);
+    }
+
+    public void Continue() {
+        Pause(1, false);
+    }
+
+    public void Retry() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Quit() {
+        //Do qTUI
+    }
     #endregion
 
 }
