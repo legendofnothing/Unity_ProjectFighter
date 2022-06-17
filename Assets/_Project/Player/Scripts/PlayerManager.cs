@@ -58,6 +58,7 @@ public class PlayerManager : MonoBehaviour
                 anim.SetBool("Die", true);
                 gameObject.GetComponent<PlayerController>().enabled = false;
                 gameObject.GetComponent<PlayerAttack>().enabled = false;
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _hasDied = true;
                 isDone = false;
             }

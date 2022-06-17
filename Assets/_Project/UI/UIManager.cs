@@ -5,6 +5,21 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    #region Scriptable Objects Declaration
+    [Header("Scriptable Objects")]
+    [SerializeField] private FloatVar playerHP;
+    [SerializeField] private FloatVar playerFuel;
+    [SerializeField] private FloatVar overHeat;
+    [Space]
+    [SerializeField] private IntVar pickupRepair;
+    [SerializeField] private IntVar pickupFuel;
+    [SerializeField] private IntVar pickupHeat;
+    [Space]
+    [SerializeField] private IntVar score;
+    [SerializeField] private IntVar highscore;
+
+    #endregion
+
     #region Unity Methods
     void Start() {
         StartPlayUI();
@@ -16,13 +31,21 @@ public class UIManager : MonoBehaviour
 
         if (PlayerManager.playerManager._hasDied) {
             StartCoroutine(InitLoseUI());
+
+            if(score.Value > highscore.Value) {
+                highscore.Value = score.Value;
+            }
         }
     }
     #endregion
 
     #region UIs
+    [Space]
     public GameObject LoseUI;
     public Text scoreDisplayLose;
+    public Text highScoreDisplay;
+
+    private int oldHighscore;
 
     private void StartUI() {
         LoseUI.SetActive(false);
@@ -30,8 +53,9 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator InitLoseUI() {
         scoreDisplayLose.text = "Score: " + score.Value.ToString();
+        highScoreDisplay.text = "Highscore: " + highscore.Value.ToString();
 
-        yield return new WaitForSeconds(2.4f);
+        yield return new WaitForSeconds(1.2f);
 
         LoseUI.SetActive(true);
 
@@ -41,17 +65,6 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region PlayUI
-    [Header("Scriptable Objects")]
-    [SerializeField] private FloatVar playerHP;
-    [SerializeField] private FloatVar playerFuel;
-    [SerializeField] private FloatVar overHeat;
-    [Space]
-    [SerializeField] private IntVar pickupRepair;
-    [SerializeField] private IntVar pickupFuel;
-    [SerializeField] private IntVar pickupHeat;
-    [Space]
-    [SerializeField] private IntVar score;
-
     [Space]
     public Text hpDisplay;
     public Text fuelDisplay;
