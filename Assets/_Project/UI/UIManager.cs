@@ -125,23 +125,23 @@ public class UIManager : MonoBehaviour
             rank.text = "S"; rank.color = Color.yellow;
         }
 
-        else if (score.Value < 49999 && score.Value > 39999) {
+        else if (score.Value < 53999 && score.Value > 49999) {
             rank.text = "A"; rank.color = Color.green;
         }
 
-        else if (score.Value < 39999 && score.Value > 29999) {
+        else if (score.Value < 49999 && score.Value > 39999) {
             rank.text = "B"; rank.color = Color.blue;
         }
 
-        else if (score.Value < 29999 && score.Value > 14999) {
+        else if (score.Value < 39999 && score.Value > 29999) {
             rank.text = "C"; rank.color = Color.white;
         }
 
-        else if (score.Value < 14999 && score.Value > 9999) {
+        else if (score.Value < 29999 && score.Value > 19999) {
             rank.text = "D"; rank.color = Color.grey;
         }
 
-        else if (score.Value < 9999) {
+        else if (score.Value < 19999) {
             rank.text = "F"; rank.color = Color.red;
         }
     }
