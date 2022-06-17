@@ -10,6 +10,7 @@ public class SpawnerManager : MonoBehaviour
     public float[] spawnerDuration;
 
     private GameObject bossInstance;
+    [HideInInspector] public bool hasStarted;
     [SerializeField] private FloatVar bossHP;
     private void Start() {
         StartCoroutine(LevelSequence());
@@ -41,5 +42,7 @@ public class SpawnerManager : MonoBehaviour
 
         yield return new WaitForSeconds(15f);
         bossInstance = Instantiate(spawners[3], transform.position, transform.rotation);
+        hasStarted = true;
+
     }
 }
