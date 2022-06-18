@@ -15,6 +15,11 @@ public class AsteroidBehaviour : MonoBehaviour
     public float damageDealt;
     public float scoreToAdd;
 
+    [Space]
+    //Audios
+    public AudioClip enemyHitAudio;
+    public AudioClip enemyDieAudio;
+
     private Animator anim;
 
     private float _damageTimer;
@@ -44,6 +49,8 @@ public class AsteroidBehaviour : MonoBehaviour
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                 isDone = false;
+
+                AudioManager.manager.PlaySFX(enemyDieAudio, 0.1f);
             }
         }
     }
@@ -71,5 +78,7 @@ public class AsteroidBehaviour : MonoBehaviour
     public void TakeDamage(float amount) {
         _currHP -= amount;
         PlayerManager.playerManager.AddScore(scoreToAdd);
+
+        AudioManager.manager.PlaySFX(enemyHitAudio, 0.3f);
     }
 }

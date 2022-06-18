@@ -73,6 +73,8 @@ MonoBehaviour:
   enemyHP: 35
   damageDealt: 10
   scoreToAdd: 50
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
 --- !u!114 &2481008732136364272
 MonoBehaviour:
   m_ObjectHideFlags: 0

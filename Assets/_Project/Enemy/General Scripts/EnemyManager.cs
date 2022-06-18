@@ -19,6 +19,11 @@ public class EnemyManager : MonoBehaviour
     private float _currHP;
     private bool _isTouching;
 
+    [Space]
+    //Audios
+    public AudioClip enemyHitAudio;
+    public AudioClip enemyDieAudio;
+
     private EnemyBehaviour enemyBehaviour;
 
     private Animator anim;
@@ -41,7 +46,7 @@ public class EnemyManager : MonoBehaviour
 
         if(_currHP <= 0) {
 
-            Die();
+            StartCoroutine(Die());
         }
     }
 
@@ -69,22 +74,24 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamage(float amount) {
         _currHP -= amount;
         PlayerManager.playerManager.AddScore(scoreToAdd);
+
+        AudioManager.manager.PlaySFX(enemyHitAudio, 0.3f);
     }
 
-    public void Die() {
-        var isDone = true;
+    public IEnumerator Die() {
+        anim.SetTrigger("Destroy");
+        enemyBehaviour.enabled = false;
+        AudioManager.manager.PlaySFX(enemyDieAudio, 0.1f);
 
-        if (isDone) {
-            anim.SetTrigger("Destroy");
-            isDone = false;
-
-            enemyBehaviour.enabled = false;
-            
-            if (!gameObject.GetComponent<BoxCollider2D>()) {
-                gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-            }
-            
-            else gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        if (!gameObject.GetComponent<BoxCollider2D>()) {
+            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
+
+        else
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+        yield return null;
     }
+
+
 }

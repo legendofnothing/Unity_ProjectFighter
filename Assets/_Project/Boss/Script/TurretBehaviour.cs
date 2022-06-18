@@ -20,6 +20,7 @@ public class TurretBehaviour : MonoBehaviour
     public float maxBulletPerCycle;
     public float delayBetweenCycle;
 
+
     #region Unity Methods
     void Start() {
         player = GameObject.Find("Player");

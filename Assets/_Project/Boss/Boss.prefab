@@ -95,6 +95,8 @@ MonoBehaviour:
   turretHP: 120
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 100
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200424891483072
 BoxCollider2D:
@@ -644,6 +646,8 @@ MonoBehaviour:
   turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 75
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200425110593046
 BoxCollider2D:
@@ -864,6 +868,8 @@ MonoBehaviour:
   turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 25
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200425564554147
 BoxCollider2D:
@@ -1002,6 +1008,8 @@ MonoBehaviour:
   turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 50
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200425639817845
 BoxCollider2D:
@@ -1433,6 +1441,8 @@ MonoBehaviour:
   turretHP: 85
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 75
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200426045869020
 BoxCollider2D:
@@ -1796,6 +1806,8 @@ MonoBehaviour:
   turretHP: 45
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 25
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200426319647649
 BoxCollider2D:
@@ -2335,6 +2347,8 @@ MonoBehaviour:
   turretHP: 65
   bossStart: {fileID: 7400000, guid: 05eaeb41b37974b4787d35c875e0843f, type: 2}
   scoreToAdd: 50
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
   bossHP: {fileID: 11400000, guid: f2f8dfcce1ced08488cec7bc52454b58, type: 2}
 --- !u!61 &3136200426558063754
 BoxCollider2D:

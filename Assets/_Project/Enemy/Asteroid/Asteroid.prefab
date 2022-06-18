@@ -127,6 +127,8 @@ MonoBehaviour:
   enemyHP: 10
   damageDealt: 10
   scoreToAdd: 5
+  enemyHitAudio: {fileID: 8300000, guid: 8ab1cd1252818a94d8639552f28ff572, type: 3}
+  enemyDieAudio: {fileID: 8300000, guid: 36ab06d1b5f54534a889b0cc9ced0bc1, type: 3}
 --- !u!50 &4275199244746736782
 Rigidbody2D:
   serializedVersion: 4
