@@ -13,6 +13,7 @@ public class WinCondition : MonoBehaviour
     private void Awake() {
         _bossHP.Value = 0;
     }
+
     private void Start() {
         for(int i = 0; i < turrets.Length; i++) {
             turretManagers = turrets[i].GetComponent<TurretManager>();
@@ -22,6 +23,6 @@ public class WinCondition : MonoBehaviour
 
     }
     private void Update() {
-        Debug.Log(_bossHP);
+
     }
 }

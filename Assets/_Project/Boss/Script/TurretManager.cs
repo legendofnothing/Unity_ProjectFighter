@@ -15,6 +15,7 @@ public class TurretManager : MonoBehaviour
 
     private float currHP;
     private Animator anim;
+    private AudioSource audioSource;
 
     private float _damageTimer;
     private bool _isTouching;
@@ -29,6 +30,7 @@ public class TurretManager : MonoBehaviour
     void Start() {
         currHP = turretHP;
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         turretBehaviour = GetComponent<TurretBehaviour>();
 
         StartCoroutine(WaitForBossStart());
@@ -40,9 +42,6 @@ public class TurretManager : MonoBehaviour
 
             if (isDone) {
                 anim.SetBool("Die", true);
-
-                turretBehaviour.enabled = false;
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
 
@@ -73,8 +72,15 @@ public class TurretManager : MonoBehaviour
             currHP -= dmg;
             bossHP.Value -= dmg;
             anim.SetTrigger("Hit");
+
             PlayerManager.playerManager.AddScore(scoreToAdd);
+            AudioManager.instance.PlaySoundEffect(audioSource, enemyHitAudio, 0.3f);
         }
+    }
+
+    public void Die() {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        AudioManager.instance.PlaySoundEffect(audioSource, enemyDieAudio, 0.3f);
     }
 
     IEnumerator WaitForBossStart() {

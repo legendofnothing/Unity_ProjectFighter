@@ -27,11 +27,14 @@ public class EnemyManager : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
 
     private Animator anim;
+    private AudioSource audioSource;
+
     #region Unity Methods
     void Start() {
         _currHP = enemyHP;
 
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         enemyBehaviour = GetComponent<EnemyBehaviour>();
     }
@@ -46,7 +49,7 @@ public class EnemyManager : MonoBehaviour
 
         if(_currHP <= 0) {
 
-            StartCoroutine(Die());
+            anim.SetTrigger("Destroy");
         }
     }
 
@@ -74,11 +77,15 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamage(float amount) {
         _currHP -= amount;
         PlayerManager.playerManager.AddScore(scoreToAdd);
+
+        AudioManager.instance.PlaySoundEffect(audioSource, enemyHitAudio, 0.3f);
     }
 
-    public IEnumerator Die() {
-        anim.SetTrigger("Destroy");
+    //Call in Animator
+    public void Die() {
         enemyBehaviour.enabled = false;
+
+        AudioManager.instance.PlaySoundEffect(audioSource, enemyDieAudio, 0.3f);
 
         if (!gameObject.GetComponent<BoxCollider2D>()) {
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
@@ -86,8 +93,6 @@ public class EnemyManager : MonoBehaviour
 
         else
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-        yield return null;
     }
 
 

@@ -21,6 +21,7 @@ public class AsteroidManager : MonoBehaviour
     public AudioClip enemyDieAudio;
 
     private Animator anim;
+    private AudioSource audioSource;
 
     private float _damageTimer;
     private float _currHP;
@@ -30,6 +31,7 @@ public class AsteroidManager : MonoBehaviour
     void Start() {
         _currHP = enemyHP;
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -42,14 +44,7 @@ public class AsteroidManager : MonoBehaviour
 
         //On HP = 0
         if (_currHP <= 0) {
-            var isDone = true;
-
-            if (isDone) {
-                anim.SetTrigger("Destroy");
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-                isDone = false;
-            }
+            anim.SetTrigger("Destroy");
         }
     }
 
@@ -76,5 +71,12 @@ public class AsteroidManager : MonoBehaviour
     public void TakeDamage(float amount) {
         _currHP -= amount;
         PlayerManager.playerManager.AddScore(scoreToAdd);
+        AudioManager.instance.PlaySoundEffect(audioSource, enemyHitAudio, 0.3f);
+    }
+
+    public void Die() {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+        AudioManager.instance.PlaySoundEffect(audioSource, enemyDieAudio, 0.3f);
     }
 }
