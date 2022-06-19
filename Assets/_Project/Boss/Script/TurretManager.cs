@@ -43,8 +43,6 @@ public class TurretManager : MonoBehaviour
 
                 turretBehaviour.enabled = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-                AudioManager.manager.PlaySFX(enemyDieAudio, 0.1f);
             }
         }
 
@@ -76,7 +74,6 @@ public class TurretManager : MonoBehaviour
             bossHP.Value -= dmg;
             anim.SetTrigger("Hit");
             PlayerManager.playerManager.AddScore(scoreToAdd);
-            AudioManager.manager.PlaySFX(enemyHitAudio, 0.3f);
         }
     }
 

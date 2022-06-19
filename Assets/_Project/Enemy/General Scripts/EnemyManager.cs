@@ -74,14 +74,11 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamage(float amount) {
         _currHP -= amount;
         PlayerManager.playerManager.AddScore(scoreToAdd);
-
-        AudioManager.manager.PlaySFX(enemyHitAudio, 0.3f);
     }
 
     public IEnumerator Die() {
         anim.SetTrigger("Destroy");
         enemyBehaviour.enabled = false;
-        AudioManager.manager.PlaySFX(enemyDieAudio, 0.1f);
 
         if (!gameObject.GetComponent<BoxCollider2D>()) {
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
