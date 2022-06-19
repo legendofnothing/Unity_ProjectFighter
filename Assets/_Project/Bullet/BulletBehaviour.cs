@@ -46,7 +46,7 @@ public class BulletBehaviour : MonoBehaviour
 
         //Destroy Upon Hitting Asteroid
         if (collision.gameObject.layer == LayerMask.NameToLayer("Asteroid")) {
-            collision.GetComponent<AsteroidBehaviour>().TakeDamage(_damage);
+            collision.GetComponent<AsteroidManager>().TakeDamage(_damage);
 
             Destroy(gameObject);
         }

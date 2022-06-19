@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class AsteroidBehaviour : MonoBehaviour
+public class AsteroidManager : MonoBehaviour
 {
     /*  SUMMARY
      * 
