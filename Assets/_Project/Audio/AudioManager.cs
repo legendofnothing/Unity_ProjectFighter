@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     #region Unity Methods
     public static AudioManager instance { get; private set; }
 
+    public AudioSource audioSource;
+
     private void Awake() {
         if (instance != null && instance != this) {
             Destroy(this);
@@ -17,7 +19,11 @@ public class AudioManager : MonoBehaviour
     }
 
     void Start() {
-        
+        audioSource = GetComponent<AudioSource>();
+
+        if(audioSource == null) {
+            Debug.Log("AudioSource on AudioManager is null");
+        }
     }
  
     void Update() {
@@ -25,11 +31,11 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    public void PlaySoundEffect(AudioSource audioSource, AudioClip clip, float volume) {
+    public void PlaySoundEffect(AudioClip clip, float volume) {
         audioSource.PlayOneShot(clip, volume);
     }
 
-    public void PlaySoundTrack(AudioSource audioSource, AudioClip clip, float volume) {
+    public void PlaySoundTrack( AudioClip clip, float volume) {
         audioSource.volume = volume;
         audioSource.loop = true;
 

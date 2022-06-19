@@ -27,14 +27,12 @@ public class EnemyManager : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
 
     private Animator anim;
-    private AudioSource audioSource;
 
     #region Unity Methods
     void Start() {
         _currHP = enemyHP;
 
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
 
         enemyBehaviour = GetComponent<EnemyBehaviour>();
     }
@@ -78,14 +76,14 @@ public class EnemyManager : MonoBehaviour
         _currHP -= amount;
         PlayerManager.playerManager.AddScore(scoreToAdd);
 
-        AudioManager.instance.PlaySoundEffect(audioSource, enemyHitAudio, 0.3f);
+        AudioManager.instance.PlaySoundEffect(enemyHitAudio, 0.3f);
     }
 
     //Call in Animator
     public void Die() {
         enemyBehaviour.enabled = false;
 
-        AudioManager.instance.PlaySoundEffect(audioSource, enemyDieAudio, 0.3f);
+        AudioManager.instance.PlaySoundEffect(enemyDieAudio, 0.3f);
 
         if (!gameObject.GetComponent<BoxCollider2D>()) {
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;

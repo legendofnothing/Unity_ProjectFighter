@@ -42,8 +42,9 @@ public class UIManager : MonoBehaviour
 
         if (PlayerManager.playerManager._hasDied) {
             StartCoroutine(InitLoseUI());
+            AudioManager.instance.audioSource.Stop();
 
-            if(score.Value > highscore.Value) {
+            if (score.Value > highscore.Value) {
                 highscore.Value = score.Value;
             }
         }
@@ -60,6 +61,7 @@ public class UIManager : MonoBehaviour
             if(bossHP.Value <= 0 && spawnerManager.hasStarted) {
 
                 StartCoroutine(InitWinUI());
+                AudioManager.instance.audioSource.Stop();
             }
         }
     }
@@ -78,6 +80,9 @@ public class UIManager : MonoBehaviour
     public Text highScoreDisplayWin;
     public Text rank;
 
+    public AudioClip loseAudio;
+    public AudioClip winAudio;
+
     private bool _isPausing;
 
     private void StartUI() {
@@ -94,6 +99,13 @@ public class UIManager : MonoBehaviour
         PauseUI.SetActive(state);
 
         _isPausing = state;
+
+        if(state == true) {
+            AudioManager.instance.audioSource.Pause();
+        }
+
+        else
+            AudioManager.instance.audioSource.Play();
     }
 
     private IEnumerator InitLoseUI() {
@@ -103,6 +115,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
 
         LoseUI.SetActive(true);
+        AudioManager.instance.PlaySoundTrack(loseAudio, 0.5f);
 
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
@@ -114,6 +127,7 @@ public class UIManager : MonoBehaviour
         highScoreDisplayWin.text = "Highscore: " + highscore.Value.ToString();
 
         SetRank();
+        AudioManager.instance.PlaySoundTrack(winAudio, 0.5f);
 
         yield return new WaitForSeconds(0.2f);
 

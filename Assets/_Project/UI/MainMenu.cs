@@ -8,10 +8,12 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject levelSelection;
+    public GameObject manual;
 
     #region Unity Methods
     void Start() {
         levelSelection.SetActive(false);
+        manual.SetActive(false);
     }
  
     void Update() {
@@ -25,7 +27,8 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Manual() {
-        //Activate Manual
+        mainMenu.SetActive(false);
+        manual.SetActive(true);
     }
 
     public void ExitGame() {
@@ -38,6 +41,7 @@ public class MainMenu : MonoBehaviour
 
     public void Return() {
         levelSelection.SetActive(false);
+        manual.SetActive(false);
         mainMenu.SetActive(true);
     }
 }

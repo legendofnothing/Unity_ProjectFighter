@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
     [Header("Shooting Configs")]
     public float overheatCap;
     public float overheatIncreaseAmount;
+    [Space]
+    public AudioClip playerShoot;
 
     #region Attack Configs
     [Header("Default Attack")]
@@ -95,6 +97,8 @@ public class PlayerAttack : MonoBehaviour
             }
 
             IncreaseOverheat(overheatIncreaseAmount);
+
+            AudioManager.instance.PlaySoundEffect(playerShoot, 0.1f);
         }
 
     }
