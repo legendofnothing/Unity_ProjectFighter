@@ -25,14 +25,12 @@ namespace Core.Patterns {
 
                         if (instances.Length > 0) {
                             _instance = instances[0];
-                            DontDestroyOnLoad(_instance);
                         }
                     }
 
                     if (_instance == null) {
                         NCLogger.Log($"No instances found, creating new {typeof(T)} instance.");
                         _instance = new GameObject($"{typeof(T)} (singleton)").AddComponent<T>();
-                        DontDestroyOnLoad(_instance);
                     }
                     
                     return _instance; 

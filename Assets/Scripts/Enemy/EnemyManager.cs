@@ -42,7 +42,7 @@ namespace Enemy {
             if (_damageTimer < Time.time && _isTouching) {
                 _damageTimer = Time.time + 1f;
 
-                PlayerManager.playerManager.TakeDamage(damageDealt);
+                Player.Player.Instance.TakeDamage(damageDealt);
             }
 
             if(_currHP <= 0) {
@@ -74,7 +74,7 @@ namespace Enemy {
 
         public void TakeDamage(float amount) {
             _currHP -= amount;
-            PlayerManager.playerManager.AddScore(scoreToAdd);
+            Player.Player.Instance.AddScore(scoreToAdd);
 
             AudioManager.instance.PlaySoundEffect(enemyHitAudio, 0.3f);
         }

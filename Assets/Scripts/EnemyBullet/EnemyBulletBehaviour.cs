@@ -24,10 +24,10 @@ namespace EnemyBullet {
             }
 
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
-                if (PlayerManager.playerManager._canDamage) {
+                if (Player.Player.Instance._canDamage) {
                     Destroy(gameObject);
 
-                    PlayerManager.playerManager.TakeDamage(10f);
+                    Player.Player.Instance.TakeDamage(10f);
                 }
             }
         }

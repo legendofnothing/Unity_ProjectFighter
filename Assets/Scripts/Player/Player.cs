@@ -1,15 +1,13 @@
 using System.Collections;
+using Core.Patterns;
 using ScriptableObjects;
 using UnityEngine;
 
 namespace Player {
-    public class PlayerManager : MonoBehaviour
-    {
+    public class Player : Singleton<Player> {
         private PlayerAttack playerAttack;
         private Animator anim;
-
-        public static PlayerManager playerManager { get; private set; }
-
+        
         [Header("Scriptable Objects")]
         [SerializeField] private FloatVar _playerHP;
         [SerializeField] private FloatVar _playerFuel;
@@ -27,27 +25,18 @@ namespace Player {
 
         #region Unity Methods
         private void Awake() {
-
-            if (playerManager != null && playerManager != this) {
-                Destroy(this);
-            }
-            else {
-                playerManager = this;
-            }
-
             _playerHP.Value = playerHP;
             _playerFuel.Value = playerFuel;
             _score.Value = 0;
         }
 
-        void Start() {
+        private void Start() {
             playerAttack = GetComponent<PlayerAttack>();
             anim = GetComponent<Animator>();
             damagedSprite.SetActive(false);
         }
- 
-        void Update() {
 
+        private void Update() {
             //Making sure these values doesnt go to infinity and beyond
             if(_playerHP.Value <= 0) {
                 _playerHP.Value = -1;

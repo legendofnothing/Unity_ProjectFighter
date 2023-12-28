@@ -28,15 +28,15 @@ namespace Boss {
 
         #region Unity Methods
 
-        void Start() {
+        private void Start() {
             currHP = turretHP;
             anim = GetComponent<Animator>();
             turretBehaviour = GetComponent<TurretBehaviour>();
 
             StartCoroutine(WaitForBossStart());
         }
- 
-        void Update() {
+
+        private void Update() {
             if(currHP <= 0) {
                 var isDone = true;
 
@@ -48,7 +48,7 @@ namespace Boss {
             if (_damageTimer < Time.time && _isTouching && _hasBossStart) {
                 _damageTimer = Time.time + 1f;
 
-                PlayerManager.playerManager.TakeDamage(10f);
+                Player.Player.Instance.TakeDamage(10f);
             }
         }
 
@@ -73,7 +73,7 @@ namespace Boss {
                 bossHP.Value -= dmg;
                 anim.SetTrigger("Hit");
 
-                PlayerManager.playerManager.AddScore(scoreToAdd);
+                Player.Player.Instance.AddScore(scoreToAdd);
                 AudioManager.instance.PlaySoundEffect(enemyHitAudio, 0.3f);
             }
         }

@@ -43,7 +43,7 @@ namespace Menu {
         void Update() {
             DisplayStats();
 
-            if (PlayerManager.playerManager._hasDied) {
+            if (Player.Player.Instance._hasDied) {
                 StartCoroutine(InitLoseUI());
                 AudioManager.instance.audioSource.Stop();
 

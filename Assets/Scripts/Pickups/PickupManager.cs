@@ -22,7 +22,7 @@ namespace Pickups {
         private GameObject player;
 
         private PlayerAttack playerAttack;
-        private PlayerManager playerManager;
+        private Player.Player _player;
 
         private float _maxPlayerHP;
         private float _maxPlayerFuel;
@@ -33,10 +33,10 @@ namespace Pickups {
             player = GameObject.Find("Player");
 
             playerAttack  = player.GetComponent<PlayerAttack>();
-            playerManager = player.GetComponent<PlayerManager>();
+            _player = player.GetComponent<Player.Player>();
 
-            _maxPlayerHP       = playerManager.playerHP;
-            _maxPlayerFuel     = playerManager.playerFuel;
+            _maxPlayerHP       = _player.playerHP;
+            _maxPlayerFuel     = _player.playerFuel;
             _maxPlayerOverheat = playerAttack.overheatCap;
 
             _pickupRepairKits.Value = 0;
