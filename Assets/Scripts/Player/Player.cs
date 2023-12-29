@@ -1,111 +1,99 @@
+using System;
 using System.Collections;
 using Core.Patterns;
+using ScriptableObjects;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player {
+    [Serializable]
+    public struct PlayerStat {
+        public float playerHp;
+        [TitleGroup("Speed Config")] 
+        public float normalSpeed;
+        public float accelSpeed;
+        [TitleGroup("Fuel Config")] 
+        public float startingFuel;
+        public float fuelBurnOnAccel;
+        [TitleGroup("Overheat Config")] 
+        public float overheatCap;
+        public float overheatIncreaseAmount;
+        public float overheatReleaseDuration;
+    }
+    
     public class Player : Singleton<Player> {
-        private PlayerAttack playerAttack;
-        private Animator anim;
+        [Header("Player Configs")] 
+        public PlayerData data;
+
+        [TitleGroup("Debug")]
+        [ReadOnly] public float currentHP;
+        [ReadOnly] public float currentSpeed;
+        [ReadOnly] public float currentFuel;
+        [ReadOnly] public float currentOverheat;
+        [Space]
+        [ReadOnly] public bool canDamage = true;
+        [ReadOnly] public bool hasDied;
+        [ReadOnly] public bool canAddOverheat = true; 
+        public PlayerStat stats { private set; get; } 
+
+        private float _fuelTimer;
+        private float _overheatTimer;
+        private Animator _animator;
         
-        [Header("Scriptable Objects")]
-        [SerializeField] private float _playerHP;
-        [SerializeField] private float _playerFuel;
-        [SerializeField] private float _score;
-
-        [Header("Player Configs")]
-        public float playerHP;
-        public float playerFuel;
-        public AnimationClip Hit;
-        public GameObject damagedSprite;
-
-        private float _timer = 0f;
-        [HideInInspector] public bool _canDamage = true;
-        [HideInInspector] public bool _hasDied;
+        private static readonly int Hit = Animator.StringToHash("Hit");
 
         #region Unity Methods
-        private void Awake() {
-            _playerHP = playerHP;
-            _playerFuel = playerFuel;
-            _score = 0;
-        }
-
         private void Start() {
-            playerAttack = GetComponent<PlayerAttack>();
-            anim = GetComponent<Animator>();
-            damagedSprite.SetActive(false);
+            stats = data.stats;
+            canDamage = true;
+            hasDied = false;
+            canAddOverheat = true;
+            
+            currentHP = stats.playerHp;
+            currentSpeed = stats.normalSpeed;
+            currentFuel = stats.startingFuel;
+            
+            _animator = GetComponent<Animator>();
         }
-
-        private void Update() {
-            //Making sure these values doesnt go to infinity and beyond
-            if(_playerHP <= 0) {
-                _playerHP = -1;
-                _canDamage = false;
-
-                var isDone = true;
-
-                if (isDone) {
-                    anim.SetBool("Die", true);
-                    gameObject.GetComponent<PlayerController>().enabled = false;
-                    gameObject.GetComponent<PlayerAttack>().enabled = false;
-                    gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    _hasDied = true;
-                    isDone = false;
-                }
-            }
-
-            if (_playerFuel <= 0) {
-                _playerFuel = -1;
-            }
-
-            if (_playerHP > playerHP) {
-                _playerHP = playerHP;
-            }
-
-            if (_playerFuel > playerFuel) {
-                _playerFuel = playerFuel;
-            }
-
-            playerAttack._canShoot = _canDamage;
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision) {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Destroy")) {
-                Destroy(gameObject);
-            }   
-        }
+        
         #endregion
-
-        //Reduce Fuel by amount/1s
-        public void ReduceFuel(float amount) {
-            if(_timer < Time.time) {
-                _timer = Time.time + 1f;
-
-                _playerFuel -= amount;
-            }
-        }
-
+        
         public void TakeDamage(float amount) {
-            if (_canDamage) {
-                _playerHP -= amount;
-                StartCoroutine(IFrames());
+            if (!canDamage) return;
+            currentHP -= amount;
+            if(currentHP <= 0) Death();
+            else _animator.SetTrigger(Hit);
+        }
+
+        public void ChangeCanDamage(int cond) {
+            canDamage = cond == 1;
+        }
+        
+        private void Death() {
+            currentHP = -1;
+            canDamage = false;
+            hasDied = true;
+        }
+        
+        public void ReduceFuel(float amount) {
+            if(_fuelTimer < Time.time) {
+                _fuelTimer = Time.time + 1f;
+                if (currentFuel <= 0) currentFuel = 0;
+                else currentFuel -= amount;
             }
         }
-
-        public void AddScore(float amount) {
-            _score += amount;
+        
+        public void AddOverheat(float amount) {
+            if(_overheatTimer < Time.time && canAddOverheat) {
+                _overheatTimer = Time.time + 1f;
+                if (currentOverheat >= stats.overheatCap) currentOverheat = stats.overheatCap;
+                else currentOverheat += stats.overheatIncreaseAmount;
+            }
         }
-
-        //Invincible Frames
-        IEnumerator IFrames() {
-            _canDamage = false;
-            anim.SetTrigger("Hit");
-            damagedSprite.SetActive(true);
-
-            yield return new WaitForSeconds(Hit.length);
-
-            damagedSprite.SetActive(false);
-
-            _canDamage = true;
+        
+        public void AddScore(float amount) {
+            
         }
     }
 }

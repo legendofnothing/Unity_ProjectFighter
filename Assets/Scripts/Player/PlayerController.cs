@@ -1,38 +1,20 @@
-using System.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Player {
-    public class PlayerController : MonoBehaviour
-    {
-        private Rigidbody2D rb;
-        private Player _player;
-
-        [Header("Scriptable Objects")]
-        [SerializeField] private float _overheat;
-        [SerializeField] private float _playerFuel;
-
-        [Header("Player Config")]
-        public float normalSpeed;
-        public float accelSpeed;
-
-        [Space]
-        public float fuelTransferAmount;
-        public float overheatTransferAmount;
-        public float delayToNextTransfer;
-
-        [Space]
+    public class PlayerController : MonoBehaviour {
+        [TitleGroup("Refs")]
         public GameObject hitBox1;
         public GameObject hitBox2;
 
-        private float _speed;
-        private bool _canTransfer = true;
-        private bool _isAcceling;
-
+        private Rigidbody2D rb;
+        private Player _player;
+        private bool _isAccelerating;
+        
         #region Unity Methods
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
             _player = GetComponent<Player>();
-            _speed = normalSpeed;
             hitBox2.SetActive(false);
         }
 
@@ -47,36 +29,30 @@ namespace Player {
 
         private void Movement() {
             var direction= new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            rb.velocity = direction * _speed;
+            rb.velocity = direction * _player.currentSpeed;
         }
 
         private void Accelerate() {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && _playerFuel > 0) {
-                _speed = accelSpeed;
-
+            if (Input.GetKeyDown(KeyCode.LeftShift) && _player.currentFuel > 0) {
+                _player.currentSpeed = _player.stats.accelSpeed;
                 hitBox1.SetActive(false);
                 hitBox2.SetActive(true);
-
-                _isAcceling = true; 
+                _isAccelerating = true;
             }
 
             else if (Input.GetKeyUp(KeyCode.LeftShift)) {
-                _speed = normalSpeed;
-
+                _player.currentSpeed = _player.stats.normalSpeed;
                 hitBox1.SetActive(true);
                 hitBox2.SetActive(false);
-
-                _isAcceling = false;
+                _isAccelerating = false;
             }
 
-            if (_isAcceling) {
-                _player.ReduceFuel(5.8f);
-            }
-
-            if(_playerFuel <= 0) {
-                _speed = normalSpeed;
-
-                _isAcceling = false;
+            if (_isAccelerating) {
+                _player.ReduceFuel(_player.stats.fuelBurnOnAccel);
+                if (!(_player.currentFuel <= 0)) return;
+                _player.currentFuel = 0;
+                _player.currentSpeed = _player.stats.normalSpeed;
+                _isAccelerating = false;
             }
         }
     }

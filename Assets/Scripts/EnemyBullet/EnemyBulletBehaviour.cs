@@ -24,7 +24,7 @@ namespace EnemyBullet {
             }
 
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
-                if (Player.Player.Instance._canDamage) {
+                if (Player.Player.Instance.canDamage) {
                     Destroy(gameObject);
 
                     Player.Player.Instance.TakeDamage(10f);

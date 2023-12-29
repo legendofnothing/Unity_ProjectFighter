@@ -19,8 +19,7 @@ namespace Pickups {
         public float overheatAdd;
 
         private GameObject player;
-
-        private PlayerAttack playerAttack;
+        
         private Player.Player _player;
 
         private float _maxPlayerHP;
@@ -30,13 +29,11 @@ namespace Pickups {
         #region Unity Methods
         void Start() {
             player = GameObject.Find("Player");
-
-            playerAttack  = player.GetComponent<PlayerAttack>();
+            
             _player = player.GetComponent<Player.Player>();
 
-            _maxPlayerHP       = _player.playerHP;
-            _maxPlayerFuel     = _player.playerFuel;
-            _maxPlayerOverheat = playerAttack.overheatCap;
+            _maxPlayerHP       = _player.stats.playerHp;
+            _maxPlayerFuel     = _player.stats.startingFuel;
 
             _pickupRepairKits = 0;
             _pickupFuel       = 0;

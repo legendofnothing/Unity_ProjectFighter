@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588087831585533}
   m_Layer: 3
-  m_Name: FOCUSP (2)
+  m_Name: Firepoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -80,13 +80,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2594588087831585530}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.4, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2594588087864831293}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2594588087864831290
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,8 +96,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594588087864831293}
+  - component: {fileID: 569247694074949776}
   m_Layer: 3
-  m_Name: FocusPoints
+  m_Name: Focus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +122,30 @@ Transform:
   m_Father: {fileID: 2594588088178559947}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569247694074949776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594588087864831290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c24ff030844aec89eacf6a85471da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Focus
+  firePoints:
+  - {fileID: 2594588088659639944}
+  - {fileID: 2594588087831585533}
+  - {fileID: 2594588089816430296}
+  - {fileID: 2594588089855644257}
+  config:
+    bullet: {fileID: 5027569497055764640, guid: d2d53d590d4c2cf47876e168a6a49849, type: 3}
+    speed: 20
+    fireDelay: 0.14
+    damage: 0.5
+    lifespan: 0.2
 --- !u!1 &2594588087869113882
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +222,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.8181819, y: 1.8181819}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -213,7 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588088178559947}
   m_Layer: 3
-  m_Name: Shootpoints
+  m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,13 +270,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594588088291540977}
+  - component: {fileID: 7404840951186146608}
   m_Layer: 3
-  m_Name: ShotgunPoints
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2594588088291540977
 Transform:
   m_ObjectHideFlags: 0
@@ -269,6 +295,29 @@ Transform:
   m_Father: {fileID: 2594588088178559947}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7404840951186146608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594588088291540974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c24ff030844aec89eacf6a85471da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Shotgun
+  firePoints:
+  - {fileID: 2594588089156349022}
+  - {fileID: 2594588089209035845}
+  - {fileID: 2594588088969071988}
+  config:
+    bullet: {fileID: 5027569497055764640, guid: ef3b688ac350f9c43a923d96403dcc8b, type: 3}
+    speed: 8
+    fireDelay: 0.35
+    damage: 2.4
+    lifespan: 0.4
 --- !u!1 &2594588088412770459
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588088412770458}
   m_Layer: 3
-  m_Name: DEFAULTP (1)
+  m_Name: Firepoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -375,7 +424,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.08, y: 0.08}
+  m_Size: {x: 0.1, y: 0.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -390,8 +439,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594588088452711237}
+  - component: {fileID: 7174333036291574132}
   m_Layer: 3
-  m_Name: DefaultPoints
+  m_Name: Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,6 +463,28 @@ Transform:
   m_Father: {fileID: 2594588088178559947}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7174333036291574132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594588088452711234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c24ff030844aec89eacf6a85471da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Default
+  firePoints:
+  - {fileID: 2594588089230834533}
+  - {fileID: 2594588088412770458}
+  config:
+    bullet: {fileID: 5027569497055764640, guid: e3d954d24479de94784d755d024f7e49, type: 3}
+    speed: 15
+    fireDelay: 0.2
+    damage: 1
+    lifespan: 12
 --- !u!1 &2594588088659639945
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588088659639944}
   m_Layer: 3
-  m_Name: FOCUSP (1)
+  m_Name: Firepoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -436,13 +508,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2594588088659639945}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.4, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2594588087864831293}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2594588088671601483
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588088969071988}
   m_Layer: 3
-  m_Name: SHOTGUNP (3)
+  m_Name: Firepoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -655,7 +727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588089156349022}
   m_Layer: 3
-  m_Name: SHOTGUNP (1)
+  m_Name: Firepoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -685,7 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588089209035845}
   m_Layer: 3
-  m_Name: SHOTGUNP (2)
+  m_Name: Firepoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -715,7 +787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588089230834533}
   m_Layer: 3
-  m_Name: DEFAULTP (2)
+  m_Name: Firepoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -745,9 +817,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588089268976095}
   - component: {fileID: 2594588089268976092}
-  - component: {fileID: 2594588089268976094}
-  - component: {fileID: 2594588089268976099}
   - component: {fileID: 2594588089268976098}
+  - component: {fileID: 2594588089268976094}
+  - component: {fileID: 957606328209407671}
   - component: {fileID: 2594588089268976101}
   - component: {fileID: 2594588089268976097}
   - component: {fileID: 2594588089268976100}
@@ -827,70 +899,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2594588089268976094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594588089268976093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dedf62ccf6578541bb1d0e7efd95b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _overheat: {fileID: 11400000, guid: 02fd165a92a0ec445892815a12d01ced, type: 2}
-  _playerFuel: {fileID: 11400000, guid: ec9f6ab03b031ab41aa441b3d7c75722, type: 2}
-  normalSpeed: 3
-  accelSpeed: 5
-  fuelTransferAmount: 50
-  overheatTransferAmount: 25
-  delayToNextTransfer: 9.5
-  hitBox1: {fileID: 2594588088811080011}
-  hitBox2: {fileID: 2594588087830377911}
---- !u!114 &2594588089268976099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594588089268976093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c3e4982ef082044bf3146a2c06cd3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _overheat: {fileID: 11400000, guid: 02fd165a92a0ec445892815a12d01ced, type: 2}
-  overheatCap: 100
-  overheatIncreaseAmount: 2.8
-  playerShoot: {fileID: 8300000, guid: 1220e67c673d9e641ac9c212b58cd805, type: 3}
-  defaultPoints:
-  - {fileID: 2594588088412770458}
-  - {fileID: 2594588089230834533}
-  defaultBullet: {fileID: 5027569497055764640, guid: e3d954d24479de94784d755d024f7e49, type: 3}
-  defaultSpeed: 15
-  defaultFR: 0.2
-  defaultDamage: 1
-  shotgunPoints:
-  - {fileID: 2594588089156349022}
-  - {fileID: 2594588089209035845}
-  - {fileID: 2594588088969071988}
-  shotgunBullet: {fileID: 5027569497055764640, guid: ef3b688ac350f9c43a923d96403dcc8b, type: 3}
-  shotgunSpeed: 8
-  shotgunFR: 0.35
-  shotgunDamage: 2.4
-  focusPoints:
-  - {fileID: 2594588088659639944}
-  - {fileID: 2594588087831585533}
-  - {fileID: 2594588089816430296}
-  - {fileID: 2594588089855644257}
-  focusBullet: {fileID: 5027569497055764640, guid: d2d53d590d4c2cf47876e168a6a49849, type: 3}
-  focusSpeed: 20
-  focusFR: 0.14
-  focusDamage: 0.5
-  _damage: 0
-  _canShoot: 0
-  _weaponIndex: 0
 --- !u!114 &2594588089268976098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,16 +911,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d6ca553e3d99b439c55035b047a116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHP: {fileID: 11400000, guid: 5a0dd1d9bcab5ce4cb6ce5b6ccd72af6, type: 2}
-  _playerFuel: {fileID: 11400000, guid: ec9f6ab03b031ab41aa441b3d7c75722, type: 2}
-  _score: {fileID: 11400000, guid: ffb9f90eecfb06349b803a19a6c3cdad, type: 2}
-  playerHP: 100
-  playerFuel: 200
-  Hit: {fileID: 7400000, guid: c3dbd035ea3be76419c56953077cff89, type: 2}
-  damagedSprite: {fileID: 0}
-  _canDamage: 1
-  _hasDied: 0
---- !u!114 &2594588089268976101
+  data: {fileID: 11400000, guid: d28342f9ad5aecc4ca17223bf3fc4cb5, type: 2}
+  currentHP: 0
+  currentSpeed: 0
+  currentFuel: 0
+  currentOverheat: 0
+  canDamage: 1
+  hasDied: 0
+--- !u!114 &2594588089268976094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -921,15 +927,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 2594588089268976093}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dedf62ccf6578541bb1d0e7efd95b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox1: {fileID: 2594588088811080011}
+  hitBox2: {fileID: 2594588087830377911}
+--- !u!114 &957606328209407671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594588089268976093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89211363994bb714cb657ad52e3d9bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 7174333036291574132}
+  - {fileID: 7404840951186146608}
+  - {fileID: 569247694074949776}
+--- !u!114 &2594588089268976101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594588089268976093}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 696557d4f8e35734e960822a8e651d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupRepairKits: {fileID: 11400000, guid: b3ea95e1c7cb574448957cbde3870c5b, type: 2}
-  _pickupFuel: {fileID: 11400000, guid: 707b2faa5286bbd458ac06aa221520c2, type: 2}
-  _pickupHeat: {fileID: 11400000, guid: 6dd382b6053573a4f82b06d2391c8eae, type: 2}
-  _playerHP: {fileID: 11400000, guid: 5a0dd1d9bcab5ce4cb6ce5b6ccd72af6, type: 2}
-  _playerFuel: {fileID: 11400000, guid: ec9f6ab03b031ab41aa441b3d7c75722, type: 2}
-  _playerOverheat: {fileID: 11400000, guid: 02fd165a92a0ec445892815a12d01ced, type: 2}
+  _pickupRepairKits: 0
+  _pickupFuel: 0
+  _pickupHeat: 0
+  _playerHP: 0
+  _playerFuel: 0
+  _playerOverheat: 0
   hpAdd: 30
   fuelAdd: 50
   overheatAdd: 25
@@ -983,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588089816430296}
   m_Layer: 3
-  m_Name: FOCUSP (3)
+  m_Name: Firepoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -996,13 +1032,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2594588089816430297}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.4, y: 0.05, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2594588087864831293}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2594588089855644254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594588089855644257}
   m_Layer: 3
-  m_Name: FOCUSP (4)
+  m_Name: Firepoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1026,10 +1062,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2594588089855644254}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.4, y: 0.05, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2594588087864831293}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
