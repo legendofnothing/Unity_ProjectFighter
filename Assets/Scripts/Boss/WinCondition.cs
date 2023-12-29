@@ -1,4 +1,3 @@
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Boss {
@@ -8,17 +7,17 @@ namespace Boss {
 
         private TurretManager turretManagers;
 
-        [SerializeField] private FloatVar _bossHP;
+        [SerializeField] private float _bossHP;
 
         private void Awake() {
-            _bossHP.Value = 0;
+            _bossHP = 0;
         }
 
         private void Start() {
             for(int i = 0; i < turrets.Length; i++) {
                 turretManagers = turrets[i].GetComponent<TurretManager>();
 
-                _bossHP.Value += turretManagers.turretHP;
+                _bossHP += turretManagers.turretHP;
             }
 
         }

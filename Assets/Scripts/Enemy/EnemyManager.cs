@@ -75,15 +75,11 @@ namespace Enemy {
         public void TakeDamage(float amount) {
             _currHP -= amount;
             Player.Player.Instance.AddScore(scoreToAdd);
-
-            AudioManager.instance.PlaySoundEffect(enemyHitAudio, 0.3f);
         }
 
         //Call in Animator
         public void Die() {
             enemyBehaviour.enabled = false;
-
-            AudioManager.instance.PlaySoundEffect(enemyDieAudio, 0.3f);
 
             if (!gameObject.GetComponent<BoxCollider2D>()) {
                 gameObject.GetComponent<PolygonCollider2D>().enabled = false;

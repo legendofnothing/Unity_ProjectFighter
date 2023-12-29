@@ -1,18 +1,17 @@
 using Player;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Pickups {
     public class PickupManager : MonoBehaviour
     {
         [Header("Scriptable Objects")]
-        [SerializeField] private IntVar _pickupRepairKits; //This gives HP
-        [SerializeField] private IntVar _pickupFuel; //This gives Fuel
-        [SerializeField] private IntVar _pickupHeat; //This gives Overheat
+        [SerializeField] private int _pickupRepairKits; //This gives HP
+        [SerializeField] private int _pickupFuel; //This gives Fuel
+        [SerializeField] private int _pickupHeat; //This gives Overheat
         [Space]
-        [SerializeField] private FloatVar _playerHP;
-        [SerializeField] private FloatVar _playerFuel;
-        [SerializeField] private FloatVar _playerOverheat;
+        [SerializeField] private float _playerHP;
+        [SerializeField] private float _playerFuel;
+        [SerializeField] private float _playerOverheat;
 
         [Header("Stats Add")]
         public float hpAdd;
@@ -39,9 +38,9 @@ namespace Pickups {
             _maxPlayerFuel     = _player.playerFuel;
             _maxPlayerOverheat = playerAttack.overheatCap;
 
-            _pickupRepairKits.Value = 0;
-            _pickupFuel.Value       = 0;
-            _pickupHeat.Value       = 0;
+            _pickupRepairKits = 0;
+            _pickupFuel       = 0;
+            _pickupHeat       = 0;
         }
  
         void Update() {
@@ -63,11 +62,11 @@ namespace Pickups {
             }
         }
 
-        private void PickupManaging(IntVar pickup, FloatVar value, float amountAdd, float cap) {
-            if(value.Value < cap && pickup.Value > 0) {
-                pickup.Value -= 1;
+        private void PickupManaging(int pickup, float value, float amountAdd, float cap) {
+            if(value < cap && pickup > 0) {
+                pickup -= 1;
 
-                value.Value  += amountAdd;
+                value  += amountAdd;
             }
         }
     }

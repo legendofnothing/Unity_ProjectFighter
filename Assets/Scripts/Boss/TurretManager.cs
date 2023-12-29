@@ -1,6 +1,5 @@
 using System.Collections;
 using Player;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Boss {
@@ -24,7 +23,7 @@ namespace Boss {
 
         private TurretBehaviour turretBehaviour;
 
-        [SerializeField] private FloatVar bossHP;
+        [SerializeField] private float bossHP;
 
         #region Unity Methods
 
@@ -70,17 +69,15 @@ namespace Boss {
         public void TakeDamage(float dmg) {
             if (_hasBossStart) {
                 currHP -= dmg;
-                bossHP.Value -= dmg;
+                bossHP -= dmg;
                 anim.SetTrigger("Hit");
 
                 Player.Player.Instance.AddScore(scoreToAdd);
-                AudioManager.instance.PlaySoundEffect(enemyHitAudio, 0.3f);
             }
         }
 
         public void Die() {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            AudioManager.instance.PlaySoundEffect(enemyDieAudio, 0.3f);
         }
 
         IEnumerator WaitForBossStart() {

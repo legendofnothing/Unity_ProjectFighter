@@ -69,13 +69,10 @@ namespace Asteroid {
         public void TakeDamage(float amount) {
             _currHP -= amount;
             Player.Player.Instance.AddScore(scoreToAdd);
-            AudioManager.instance.PlaySoundEffect(enemyHitAudio, 0.3f);
         }
 
         public void Die() {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-            AudioManager.instance.PlaySoundEffect(enemyDieAudio, 0.3f);
         }
     }
 }

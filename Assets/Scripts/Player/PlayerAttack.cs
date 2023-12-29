@@ -1,12 +1,11 @@
 using System.Collections;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Player {
     public class PlayerAttack : MonoBehaviour
     {
         [Header("Scriptable Objects n' Other Stuff")]
-        [SerializeField] private FloatVar _overheat;
+        [SerializeField] private float _overheat;
 
         [Header("Shooting Configs")]
         public float overheatCap;
@@ -67,7 +66,7 @@ namespace Player {
         #region Unity Methods
 
         private void Awake() {
-            _overheat.Value = 0;
+            _overheat = 0;
         }
 
         private void Start() {
@@ -81,8 +80,8 @@ namespace Player {
             ChangeWeapon();
             InitiateOverheat();
 
-            if(_overheat.Value >= overheatCap) {
-                _overheat.Value = overheatCap;
+            if(_overheat >= overheatCap) {
+                _overheat = overheatCap;
             }
         }
         #endregion
@@ -98,8 +97,6 @@ namespace Player {
                 }
 
                 IncreaseOverheat(overheatIncreaseAmount);
-
-                AudioManager.instance.PlaySoundEffect(playerShoot, 0.1f);
             }
 
         }
@@ -122,7 +119,7 @@ namespace Player {
         }
 
         private void InitiateOverheat() {
-            if (Input.GetKeyDown(KeyCode.K) && _overheat.Value >= overheatCap) {
+            if (Input.GetKeyDown(KeyCode.K) && _overheat >= overheatCap) {
                 StartCoroutine(Overheat());
             }
         }
@@ -141,14 +138,14 @@ namespace Player {
             if (_overheatTimer < Time.time && _canProduceHeat) {
                 _overheatTimer = Time.time + 1f;
 
-                _overheat.Value += amount;
+                _overheat += amount;
             }
         }
 
         private IEnumerator Overheat() {
             var prevFR      = _fireRate; //Store old fireRate
 
-            _overheat.Value = 0;
+            _overheat = 0;
             _fireRate      -= 0.1f;
             _canProduceHeat = false;
 

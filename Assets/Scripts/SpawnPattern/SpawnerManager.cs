@@ -1,5 +1,4 @@
 using System.Collections;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace SpawnPattern {
@@ -12,13 +11,13 @@ namespace SpawnPattern {
 
         private GameObject bossInstance;
         [HideInInspector] public bool hasStarted;
-        [SerializeField] private FloatVar bossHP;
+        [SerializeField] private float bossHP;
         private void Start() {
             StartCoroutine(LevelSequence());
         }
 
         private void Update() {
-            if(bossHP.Value <= 0) {
+            if(bossHP <= 0) {
                 Destroy(bossInstance);
             }
         }

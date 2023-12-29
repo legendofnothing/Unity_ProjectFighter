@@ -1,5 +1,4 @@
 using System.Collections;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Player {
@@ -9,8 +8,8 @@ namespace Player {
         private Player _player;
 
         [Header("Scriptable Objects")]
-        [SerializeField] private FloatVar _overheat;
-        [SerializeField] private FloatVar _playerFuel;
+        [SerializeField] private float _overheat;
+        [SerializeField] private float _playerFuel;
 
         [Header("Player Config")]
         public float normalSpeed;
@@ -52,7 +51,7 @@ namespace Player {
         }
 
         private void Accelerate() {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && _playerFuel.Value > 0) {
+            if (Input.GetKeyDown(KeyCode.LeftShift) && _playerFuel > 0) {
                 _speed = accelSpeed;
 
                 hitBox1.SetActive(false);
@@ -74,7 +73,7 @@ namespace Player {
                 _player.ReduceFuel(5.8f);
             }
 
-            if(_playerFuel.Value <= 0) {
+            if(_playerFuel <= 0) {
                 _speed = normalSpeed;
 
                 _isAcceling = false;

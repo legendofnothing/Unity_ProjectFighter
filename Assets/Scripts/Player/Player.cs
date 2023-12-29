@@ -1,6 +1,5 @@
 using System.Collections;
 using Core.Patterns;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Player {
@@ -9,9 +8,9 @@ namespace Player {
         private Animator anim;
         
         [Header("Scriptable Objects")]
-        [SerializeField] private FloatVar _playerHP;
-        [SerializeField] private FloatVar _playerFuel;
-        [SerializeField] private IntVar _score;
+        [SerializeField] private float _playerHP;
+        [SerializeField] private float _playerFuel;
+        [SerializeField] private float _score;
 
         [Header("Player Configs")]
         public float playerHP;
@@ -25,9 +24,9 @@ namespace Player {
 
         #region Unity Methods
         private void Awake() {
-            _playerHP.Value = playerHP;
-            _playerFuel.Value = playerFuel;
-            _score.Value = 0;
+            _playerHP = playerHP;
+            _playerFuel = playerFuel;
+            _score = 0;
         }
 
         private void Start() {
@@ -38,8 +37,8 @@ namespace Player {
 
         private void Update() {
             //Making sure these values doesnt go to infinity and beyond
-            if(_playerHP.Value <= 0) {
-                _playerHP.Value = -1;
+            if(_playerHP <= 0) {
+                _playerHP = -1;
                 _canDamage = false;
 
                 var isDone = true;
@@ -54,16 +53,16 @@ namespace Player {
                 }
             }
 
-            if (_playerFuel.Value <= 0) {
-                _playerFuel.Value = -1;
+            if (_playerFuel <= 0) {
+                _playerFuel = -1;
             }
 
-            if (_playerHP.Value > playerHP) {
-                _playerHP.Value = playerHP;
+            if (_playerHP > playerHP) {
+                _playerHP = playerHP;
             }
 
-            if (_playerFuel.Value > playerFuel) {
-                _playerFuel.Value = playerFuel;
+            if (_playerFuel > playerFuel) {
+                _playerFuel = playerFuel;
             }
 
             playerAttack._canShoot = _canDamage;
@@ -81,19 +80,19 @@ namespace Player {
             if(_timer < Time.time) {
                 _timer = Time.time + 1f;
 
-                _playerFuel.Value -= amount;
+                _playerFuel -= amount;
             }
         }
 
         public void TakeDamage(float amount) {
             if (_canDamage) {
-                _playerHP.Value -= amount;
+                _playerHP -= amount;
                 StartCoroutine(IFrames());
             }
         }
 
         public void AddScore(float amount) {
-            _score.Value += amount;
+            _score += amount;
         }
 
         //Invincible Frames
