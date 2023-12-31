@@ -20,6 +20,10 @@ namespace Player {
         public float overheatCap;
         public float overheatIncreaseAmount;
         public float overheatReleaseDuration;
+        [TitleGroup("Pickup Config")] 
+        public float hpAdded;
+        public float fuelAdded;
+        public float overheatAdded;
     }
     
     public class Player : Singleton<Player> {
@@ -38,7 +42,7 @@ namespace Player {
         public PlayerStat stats { private set; get; } 
 
         private float _fuelTimer;
-        private float _overheatTimer;
+        private float _overheatTimer;   
         private Animator _animator;
         
         private static readonly int Hit = Animator.StringToHash("Hit");
@@ -83,6 +87,12 @@ namespace Player {
                 else currentFuel -= amount;
             }
         }
+
+        public void AddFuel(float amount) {
+            if (currentFuel >= stats.startingFuel) return;
+            currentFuel += amount;
+            if (currentFuel >= stats.startingFuel) currentFuel = stats.startingFuel;
+        }
         
         public void AddOverheat(float amount) {
             if(_overheatTimer < Time.time && canAddOverheat) {
@@ -90,6 +100,18 @@ namespace Player {
                 if (currentOverheat >= stats.overheatCap) currentOverheat = stats.overheatCap;
                 else currentOverheat += stats.overheatIncreaseAmount;
             }
+        }
+        
+        public void AddOverheatOnce(float amount) {
+            if (currentOverheat >= stats.overheatCap) return;
+            currentOverheat += amount;
+            if (currentOverheat >= stats.overheatCap) currentFuel = stats.overheatCap;
+        }
+
+        public void AddHP(float amount) {
+            if (currentHP >= stats.playerHp) return;
+            currentHP += amount;
+            if (currentHP >= stats.playerHp) currentHP = stats.playerHp;
         }
         
         public void AddScore(float amount) {

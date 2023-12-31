@@ -1,69 +1,79 @@
-using Player;
+using System;
+using Core.Events;
+using P = Player;
 using UnityEngine;
+using EventType = Core.Events.EventType;
 
 namespace Pickups {
-    public class PickupManager : MonoBehaviour
-    {
-        [Header("Scriptable Objects")]
-        [SerializeField] private int _pickupRepairKits; //This gives HP
-        [SerializeField] private int _pickupFuel; //This gives Fuel
-        [SerializeField] private int _pickupHeat; //This gives Overheat
-        [Space]
-        [SerializeField] private float _playerHP;
-        [SerializeField] private float _playerFuel;
-        [SerializeField] private float _playerOverheat;
-
-        [Header("Stats Add")]
-        public float hpAdd;
-        public float fuelAdd;
-        public float overheatAdd;
-
-        private GameObject player;
+    public enum PickupType {
+        Repair,
+        Fuel,
+        Overheat,
+    }
+    
+    public class PickupManager : MonoBehaviour {
+        private P.Player _player;
+        private int _repairKits;
+        private int _fuelCans;
+        private int _overheatCans;
         
-        private Player.Player _player;
-
-        private float _maxPlayerHP;
-        private float _maxPlayerFuel;
-        private float _maxPlayerOverheat;
-
         #region Unity Methods
-        void Start() {
-            player = GameObject.Find("Player");
-            
-            _player = player.GetComponent<Player.Player>();
-
-            _maxPlayerHP       = _player.stats.playerHp;
-            _maxPlayerFuel     = _player.stats.startingFuel;
-
-            _pickupRepairKits = 0;
-            _pickupFuel       = 0;
-            _pickupHeat       = 0;
+        private void Start() {
+            _player = GetComponent<P.Player>();
+            this.AddListener(EventType.OnPickupAdded, param => AddPickup((PickupType)param));
         }
- 
-        void Update() {
-            UsePickups();
+
+        private void Update() {
+            PickupInput();
         }
         #endregion
 
-        private void UsePickups() {
-            if (Input.GetKeyDown(KeyCode.I)) {
-                PickupManaging(_pickupRepairKits, _playerHP, hpAdd, _maxPlayerHP);
-            }
-        
-            if (Input.GetKeyDown(KeyCode.O)) {
-                PickupManaging(_pickupFuel, _playerFuel, fuelAdd, _maxPlayerFuel);
-            }
+        private void PickupInput() {
+            if (Input.GetKeyDown(KeyCode.I)) UsePickup(PickupType.Repair);
+            else if (Input.GetKeyDown(KeyCode.O)) UsePickup(PickupType.Fuel);
+            else if (Input.GetKeyDown(KeyCode.P)) UsePickup(PickupType.Overheat);
+        }
 
-            if (Input.GetKeyDown(KeyCode.P)) {
-                PickupManaging(_pickupHeat, _playerOverheat, overheatAdd, _maxPlayerOverheat);
+        private void AddPickup(PickupType type) {
+            switch (type) {
+                case PickupType.Repair:
+                    _repairKits++;
+                    break;
+                case PickupType.Fuel:
+                    _fuelCans++;
+                    break;
+                case PickupType.Overheat:
+                    _overheatCans++;
+                    break;
             }
         }
 
-        private void PickupManaging(int pickup, float value, float amountAdd, float cap) {
-            if(value < cap && pickup > 0) {
-                pickup -= 1;
-
-                value  += amountAdd;
+        private void UsePickup(PickupType type) {
+            var hasEnough = type switch {
+                PickupType.Fuel => _fuelCans > 0,
+                PickupType.Overheat => _overheatCans > 0,
+                PickupType.Repair => _repairKits > 0,
+            };
+            if (!hasEnough) return;
+            var reachedCap = type switch {
+                PickupType.Fuel => _player.currentHP < _player.stats.playerHp,
+                PickupType.Overheat => _player.currentOverheat < _player.stats.overheatCap,
+                PickupType.Repair => _player.currentFuel < _player.stats.startingFuel,
+            };
+            if (!reachedCap) return;
+            switch (type) {
+                case PickupType.Repair:
+                    _player.AddHP(_player.stats.hpAdded);
+                    _repairKits--;
+                    break;
+                case PickupType.Fuel:
+                    _player.AddFuel(_player.stats.fuelAdded);
+                    _fuelCans--;
+                    break;
+                case PickupType.Overheat:
+                    _player.AddOverheatOnce(_player.stats.overheatAdded);
+                    _overheatCans--;
+                    break;
             }
         }
     }

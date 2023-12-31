@@ -30,7 +30,6 @@ namespace Pickups {
 
         private void SpawnPickups(int index) {
             var pickupInstance = Instantiate(pickups[index], transform.position, transform.rotation);
-
             pickupInstance.GetComponent<Rigidbody2D>().velocity = Vector2.down * 0.6f;
         }
     }

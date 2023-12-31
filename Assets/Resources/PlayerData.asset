@@ -21,3 +21,6 @@ MonoBehaviour:
     overheatCap: 100
     overheatIncreaseAmount: 10
     overheatReleaseDuration: 3.4
+    hpAdded: 30
+    fuelAdded: 50
+    overheatAdded: 25
