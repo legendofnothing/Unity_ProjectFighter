@@ -32,7 +32,7 @@ namespace Weapons {
             this.AddListener(EventType.OnFinishOverheat, _=>OnOverheatFinish());
         }
 
-        public void OnFire() {
+        public void Fire() {
             if (!_canShoot || firePoints.Length <= 0) return;
             foreach (var firePoint in firePoints) {
                 var bulletInstance = Instantiate(config.bullet, firePoint.position, firePoint.rotation);

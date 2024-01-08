@@ -30,7 +30,7 @@ namespace Weapons {
         }
 
         private void Update() {
-            if (Input.GetKey(KeyCode.Space) && _canAttack) _currentWeapon.OnFire();
+            if (Input.GetKey(KeyCode.Space) && _canAttack) _currentWeapon.Fire();
             
             if (Input.GetKeyDown(KeyCode.K) && _canReleaseOverheat) StartCoroutine(ReleaseOverheat());
 

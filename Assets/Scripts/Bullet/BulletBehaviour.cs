@@ -1,15 +1,13 @@
-using Asteroid;
-using Boss;
-using Enemy;
-using Player;
-using Sirenix.OdinInspector;
+using Core;
+using Enemies;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Weapons;
 
 namespace Bullet {
     public class BulletBehaviour : MonoBehaviour {
         private WeaponConfig config;
+        public LayerMask interactLayer;
+        public LayerMask damageLayer; 
 
         public void Init(ref WeaponConfig config) {
             this.config = config;
@@ -18,9 +16,14 @@ namespace Bullet {
         }
         
         private void OnTriggerEnter2D(Collider2D collision) {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Viewport")) {
+            if(CheckLayerMask.IsInLayerMask(collision.gameObject, interactLayer)) {
                 Destroy(gameObject);
+                if(CheckLayerMask.IsInLayerMask(collision.gameObject, damageLayer)) {
+                    if (collision.gameObject.TryGetComponent<Enemy>(out var enemy)) enemy.TakeDamage(config.damage);
+                    else if (collision.gameObject.TryGetComponent<Player.Player>(out var player)) player.TakeDamage(config.damage);
+                } 
             } 
         }
     }
 }
+

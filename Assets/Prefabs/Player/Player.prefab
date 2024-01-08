@@ -144,7 +144,7 @@ MonoBehaviour:
     bullet: {fileID: 5027569497055764640, guid: d2d53d590d4c2cf47876e168a6a49849, type: 3}
     speed: 20
     fireDelay: 0.14
-    damage: 0.5
+    damage: 15
     lifespan: 0.2
 --- !u!1 &2594588087869113882
 GameObject:
@@ -316,7 +316,7 @@ MonoBehaviour:
     bullet: {fileID: 5027569497055764640, guid: ef3b688ac350f9c43a923d96403dcc8b, type: 3}
     speed: 8
     fireDelay: 0.35
-    damage: 2.4
+    damage: 24
     lifespan: 0.4
 --- !u!1 &2594588088412770459
 GameObject:
@@ -483,7 +483,7 @@ MonoBehaviour:
     bullet: {fileID: 5027569497055764640, guid: e3d954d24479de94784d755d024f7e49, type: 3}
     speed: 15
     fireDelay: 0.2
-    damage: 1
+    damage: 10
     lifespan: 12
 --- !u!1 &2594588088659639945
 GameObject:
@@ -918,6 +918,7 @@ MonoBehaviour:
   currentOverheat: 0
   canDamage: 1
   hasDied: 0
+  canAddOverheat: 1
 --- !u!114 &2594588089268976094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,15 +961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696557d4f8e35734e960822a8e651d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupRepairKits: 0
-  _pickupFuel: 0
-  _pickupHeat: 0
-  _playerHP: 0
-  _playerFuel: 0
-  _playerOverheat: 0
-  hpAdd: 30
-  fuelAdd: 50
-  overheatAdd: 25
 --- !u!50 &2594588089268976097
 Rigidbody2D:
   serializedVersion: 4

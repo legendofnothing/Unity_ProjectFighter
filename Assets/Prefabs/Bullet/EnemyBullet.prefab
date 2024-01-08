@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 1971037837
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: be615af3e43cc484ab13b91e879b9b03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5dc60021582421149a0458a0beb82e08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -1477505591120717620}
   - component: {fileID: 1919425547954690617}
   m_Layer: 7
-  m_Name: BulletFocus
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 520
   damageLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8
