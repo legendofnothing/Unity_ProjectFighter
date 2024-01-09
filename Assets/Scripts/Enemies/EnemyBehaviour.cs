@@ -8,19 +8,24 @@ namespace Enemies {
         public EnemyWeapon weapon;
         private Rigidbody2D _rigidbody;
         private bool _canShoot = true;
+        protected Vector3 PlayerPos;
+        protected bool HasDied;
 
         private void Start() {
             _rigidbody = GetComponent<Rigidbody2D>();
             _canShoot = true;
+            if (Player.Player.Instance != null) PlayerPos = Player.Player.Instance.transform.position;
             OnEnter();
         }
 
         private void Update() {
+            if (Player.Player.Instance != null) PlayerPos = Player.Player.Instance.transform.position;
             OnUpdate();
         }
 
-        private void OnDestroy() {
+        public void OnDeath() {
             OnExit();
+            HasDied = true;
         }
 
         protected abstract void OnEnter(); 
