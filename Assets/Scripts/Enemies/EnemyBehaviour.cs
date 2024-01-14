@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using Weapons;
 
@@ -8,6 +9,7 @@ namespace Enemies {
         public EnemyWeapon weapon;
         private Rigidbody2D _rigidbody;
         private bool _canShoot = true;
+        private Tween _spinTween;
         protected Vector3 PlayerPos;
         protected bool HasDied;
 
@@ -26,6 +28,7 @@ namespace Enemies {
         public void OnDeath() {
             OnExit();
             HasDied = true;
+            _spinTween?.Kill();
         }
 
         protected abstract void OnEnter(); 
@@ -45,20 +48,30 @@ namespace Enemies {
             transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f, Vector3.forward);
         }
 
-        protected void FlyForward(float speed) {
-            _rigidbody.velocity = transform.up * speed;
+        protected void Fly(float speed, Vector3 dir) {
+            _rigidbody.velocity = dir * speed;
         }
 
-        protected void Shoot(int amountOfShots) {
+        protected void Spin(float spinTime) {
+            _spinTween = transform.DOLocalRotate(new Vector3(0, 0, 360), spinTime, RotateMode.FastBeyond360)
+                .SetRelative(true)
+                .SetEase(Ease.Linear)
+                .SetLoops(-1);
+        }
+
+        protected void Shoot(int volleyAmount, float delayBetweenVolley, float shootingDelay) {
             if (weapon != null && _canShoot) {
-                _canShoot = false;
-                weapon.Fire(amountOfShots);
-                StartCoroutine(FireDelay(weapon.config.fireDelay));
+                StartCoroutine(FireLogic(volleyAmount, delayBetweenVolley, shootingDelay));
             }
         }
 
-        private IEnumerator FireDelay(float delay) {
-            yield return new WaitForSeconds(delay);
+        private IEnumerator FireLogic(int volleyAmount, float delayBetweenVolley, float shootingDelay) {
+            _canShoot = false;
+            for (var i = 0; i < volleyAmount; i++) {
+                weapon.Fire();
+                yield return new WaitForSeconds(delayBetweenVolley); 
+            }
+            yield return new WaitForSeconds(shootingDelay);
             _canShoot = true;
         }
     }

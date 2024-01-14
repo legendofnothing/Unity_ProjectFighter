@@ -20,14 +20,13 @@ namespace Enemies.Variants {
 
         protected override void OnUpdate() {
             LookAt(PlayerPos, _currentRotateSpeed);
-            FlyForward(_currentSpeed);
+            Fly(_currentSpeed, transform.up);
         }
 
         protected override void OnExit() {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
             _currentRotateSpeed = 0;
-            var s = DOVirtual.Float(_currentSpeed, 0, 0.8f, value => {
-                _currentSpeed = value;
-            });
+            _currentSpeed = 0;
         }
     }
 }

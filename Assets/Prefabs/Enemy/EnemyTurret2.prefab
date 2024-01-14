@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196414227754903622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19, y: 1, z: 0}
+  m_LocalPosition: {x: -0.19, y: 1.296, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7765692334413490585}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552518387139530569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19, y: 1, z: 0}
+  m_LocalPosition: {x: 0.19, y: 1.296, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7765692334413490585}
@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 5617036721011569374}
   - component: {fileID: 2481008732136364275}
   - component: {fileID: 403134032430463853}
+  - component: {fileID: 8764694970957919349}
   m_Layer: 8
   m_Name: EnemyTurret2
   m_TagString: Untagged
@@ -130,7 +131,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -175,6 +176,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8764694970957919349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481008732136364287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de725579e1794820886e7878d90b3534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 4178149026970495745}
+  spinTime: 8
+  volleyAmount: 12
+  delayBetweenVolley: 0.2
+  shootingDelay: 5
+  speed: 1
 --- !u!1 &8082715025904567342
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,3 +350,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4563477091401515554, guid: 6b1456c27ffd9d840aa6d3e79573d9a7, type: 3}
   m_PrefabInstance: {fileID: 6093918079688797115}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4178149026970495745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7884173831619084474, guid: 6b1456c27ffd9d840aa6d3e79573d9a7, type: 3}
+  m_PrefabInstance: {fileID: 6093918079688797115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c5cdbe00414871b5b9949d14cc60b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,7 +5,7 @@
         }
 
         protected override void OnUpdate() {
-            Shoot(4);
+          
         }
 
         protected override void OnExit() {

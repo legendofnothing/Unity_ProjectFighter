@@ -46,7 +46,7 @@ MonoBehaviour:
   firePoints: []
   config:
     bullet: {fileID: 5027569497055764640, guid: 63568def2b43aed49be920dc994bef46, type: 3}
-    speed: 1
+    speed: 5
     fireDelay: 0.8
     damage: 5
     lifespan: 99

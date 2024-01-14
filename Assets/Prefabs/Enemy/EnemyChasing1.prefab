@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2481008732136364274}
   - component: {fileID: 2481008732136364275}
   - component: {fileID: 403134032430463853}
+  - component: {fileID: 1339705262}
   m_Layer: 8
   m_Name: EnemyChasing1
   m_TagString: Untagged
@@ -145,6 +146,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1339705262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481008732136364287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e146b02b908040ee9386866339c8fff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 8107913390529816733}
+  chaseSpeed: 1
+  rotateSpeed: 0.8
 --- !u!1 &6624525134293782731
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,3 +347,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4563477091401515554, guid: 6b1456c27ffd9d840aa6d3e79573d9a7, type: 3}
   m_PrefabInstance: {fileID: 2156993420927674407}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8107913390529816733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7884173831619084474, guid: 6b1456c27ffd9d840aa6d3e79573d9a7, type: 3}
+  m_PrefabInstance: {fileID: 2156993420927674407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c5cdbe00414871b5b9949d14cc60b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
