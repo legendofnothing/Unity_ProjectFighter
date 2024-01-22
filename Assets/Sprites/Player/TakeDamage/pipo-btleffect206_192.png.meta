@@ -117,7 +117,7 @@ TextureImporter:
       213: -6427817923090886951
     second: pipo-btleffect206_192_39
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -134,10 +134,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -176,6 +178,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -187,6 +191,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -199,6 +204,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -211,6 +217,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -646,9 +666,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      pipo-btleffect206_192_11: -5597318284885948259
+      pipo-btleffect206_192_15: 449916070237898113
+      pipo-btleffect206_192_25: -4884731611033754063
+      pipo-btleffect206_192_26: -4185452453500453212
+      pipo-btleffect206_192_27: -1258259862003087751
+      pipo-btleffect206_192_28: 3626269392675002526
+      pipo-btleffect206_192_29: 2334724491535678919
+      pipo-btleffect206_192_30: -1553182659745577130
+      pipo-btleffect206_192_31: -3554342262876711017
+      pipo-btleffect206_192_32: 9062375102626796149
+      pipo-btleffect206_192_33: -4386597893348942193
+      pipo-btleffect206_192_34: 62082922029280476
+      pipo-btleffect206_192_35: -171986964163336375
+      pipo-btleffect206_192_36: -711176291459852973
+      pipo-btleffect206_192_37: -8754383778778956412
+      pipo-btleffect206_192_38: 4152891229725111823
+      pipo-btleffect206_192_39: -6427817923090886951
+      pipo-btleffect206_192_7: -3754560956288622698
+      pipo-btleffect206_192_8: 7881362166556610513
+      pipo-btleffect206_192_9: 3670094342777970089
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
