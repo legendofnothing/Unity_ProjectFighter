@@ -17,11 +17,13 @@ namespace Bullet {
         
         private void OnTriggerEnter2D(Collider2D collision) {
             if(CheckLayerMask.IsInLayerMask(collision.gameObject, interactLayer)) {
-                Destroy(gameObject);
                 if(CheckLayerMask.IsInLayerMask(collision.gameObject, damageLayer)) {
                     if (collision.gameObject.TryGetComponent<Enemy>(out var enemy)) enemy.TakeDamage(config.damage);
-                    else if (collision.gameObject.TryGetComponent<Player.Player>(out var player)) player.TakeDamage(config.damage);
+                    else if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
+                        Player.Player.Instance.TakeDamage(config.damage);
+                    }
                 } 
+                Destroy(gameObject);
             } 
         }
     }
