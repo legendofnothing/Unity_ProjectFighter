@@ -209,7 +209,7 @@ MonoBehaviour:
     collider: {fileID: 2849245522173766809}
   boundCamera: {fileID: 6677260270134191157}
   colliderThickness: 0.1
-  offset: 300
+  offset: 500
 --- !u!1 &2394037406810829061
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8727059199059875357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8596343148685201034}
+  - component: {fileID: 1929703711193539894}
+  m_Layer: 0
+  m_Name: SpawnSystemLvl1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8596343148685201034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727059199059875357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929703711193539894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727059199059875357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bb02d5b1712fe42afbf6d2e0de32f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - duration: 20
+    data:
+    - position: {x: 2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 1.5
+    - position: {x: -2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.2
+      spawnInInterval: 1
+      spawningInterval: 2
+    - position: {x: 6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.4
+      spawnInInterval: 1
+      spawningInterval: 1.4
+    - position: {x: -6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.6
+      spawnInInterval: 1
+      spawningInterval: 1.6
+  - duration: 40
+    data:
+    - position: {x: 2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 2
+    - position: {x: -6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.6
+      spawnInInterval: 1
+      spawningInterval: 2.1
+    - position: {x: 2.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0.4
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -2.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0.2
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 6.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -6.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0.6
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 12, y: 3}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 10
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -12, y: 3}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 10
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -12, y: -3}
+      toSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
+      spawningDelay: 20
+      spawnInInterval: 1
+      spawningInterval: 20
+    - position: {x: 12, y: -3}
+      toSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
+      spawningDelay: 20
+      spawnInInterval: 1
+      spawningInterval: 20
+  - duration: 25
+    data:
+    - position: {x: 0, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: 784df88146438b8499a964779662edd2, type: 3}
+      spawningDelay: 8
+      spawnInInterval: 0
+      spawningInterval: 0
+    - position: {x: 3, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: f7a1b290c8a8fdf4587e4639b94ec046, type: 3}
+      spawningDelay: 8
+      spawnInInterval: 0
+      spawningInterval: 0
+    - position: {x: -3, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: 961952835a24c724c9dcd4602a2c5474, type: 3}
+      spawningDelay: 8
+      spawnInInterval: 0
+      spawningInterval: 0
+  - duration: 75
+    data:
+    - position: {x: 2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.4
+      spawnInInterval: 1
+      spawningInterval: 1.6
+    - position: {x: 6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.2
+      spawnInInterval: 1
+      spawningInterval: 2
+    - position: {x: -2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 2.2
+    - position: {x: -6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.1
+      spawnInInterval: 1
+      spawningInterval: 1.8
+    - position: {x: 3.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 5
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 7.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 5.1
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -3.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 5.2
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -7.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 5.3
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 0, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 5.4
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 12, y: 5}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 6
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: 12, y: -5}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 6
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: -12, y: 5}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 6
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: -12, y: -5}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 6
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: 9, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
+      spawningDelay: 10
+      spawnInInterval: 1
+      spawningInterval: 18
+    - position: {x: -9, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
+      spawningDelay: 10
+      spawnInInterval: 1
+      spawningInterval: 18
+  - duration: 15
+    data:
+    - position: {x: 0, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: 784df88146438b8499a964779662edd2, type: 3}
+      spawningDelay: 3
+      spawnInInterval: 0
+      spawningInterval: 0
+    - position: {x: 3, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: f7a1b290c8a8fdf4587e4639b94ec046, type: 3}
+      spawningDelay: 3
+      spawnInInterval: 0
+      spawningInterval: 0
+    - position: {x: -3, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: 961952835a24c724c9dcd4602a2c5474, type: 3}
+      spawningDelay: 3
+      spawnInInterval: 0
+      spawningInterval: 0
+  - duration: 50
+    data:
+    - position: {x: 5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: fa71db2162005b84d9e0a9a491f7a623, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: -5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: fa71db2162005b84d9e0a9a491f7a623, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: 0, y: 10}
+      toSpawn: {fileID: 2481008732136364287, guid: e265b633ac660fc45bd38492ab5d7b39, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 15
+    - position: {x: 2, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -2, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -8, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 8, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 10
+  wave: 5

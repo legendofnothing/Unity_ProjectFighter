@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1e4cb7a812e604a8abcec1dfb56201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHP: 5
+  enemyHP: 50
 --- !u!95 &403134032430463853
 Animator:
   serializedVersion: 5

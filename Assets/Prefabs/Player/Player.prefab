@@ -166,7 +166,7 @@ MonoBehaviour:
     bullet: {fileID: 5027569497055764640, guid: d2d53d590d4c2cf47876e168a6a49849, type: 3}
     speed: 20
     fireDelay: 0.14
-    damage: 15
+    damage: 8
     lifespan: 0.2
 --- !u!1 &2594588087869113882
 GameObject:
@@ -905,7 +905,7 @@ Transform:
   - {fileID: 2594588088811080013}
   - {fileID: 2594588087830377913}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2594588089268976092
 SpriteRenderer:
