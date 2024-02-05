@@ -153,28 +153,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawns:
-  - duration: 10
-    data:
-    - position: {x: 2, y: 2}
-      toSpawn: {fileID: 5027569497055764640, guid: e3d954d24479de94784d755d024f7e49, type: 3}
-      spawnInInterval: 1
-      spawningInterval: 3
-    - position: {x: 2, y: 5}
-      toSpawn: {fileID: 0}
-      spawnInInterval: 0
-      spawningInterval: 0
-    - position: {x: 0, y: 0}
-      toSpawn: {fileID: 0}
-      spawnInInterval: 0
-      spawningInterval: 0
   - duration: 20
     data:
-    - position: {x: 5, y: 0}
-      toSpawn: {fileID: 0}
+    - position: {x: 2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 1.5
+    - position: {x: -2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.2
+      spawnInInterval: 1
+      spawningInterval: 2
+    - position: {x: 6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.4
+      spawnInInterval: 1
+      spawningInterval: 1.4
+    - position: {x: -6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.6
+      spawnInInterval: 1
+      spawningInterval: 1.6
+  - duration: 40
+    data:
+    - position: {x: 2, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 2
+    - position: {x: -6, y: 7}
+      toSpawn: {fileID: 4275199244746736777, guid: 8050ea20a3a2e7b4f898ef169cfeb568, type: 3}
+      spawningDelay: 0.6
+      spawnInInterval: 1
+      spawningInterval: 2.1
+    - position: {x: 2.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0.4
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -2.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0.2
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 6.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -6.5, y: 7}
+      toSpawn: {fileID: 2481008732136364287, guid: 7953b5f4bcaf58a4a82bf89747d8ab7e, type: 3}
+      spawningDelay: 0.6
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: 12, y: 3}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 10
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -12, y: 3}
+      toSpawn: {fileID: 2481008732136364287, guid: 9c588b607f15b0f4bab5bd35dee97b5a, type: 3}
+      spawningDelay: 10
+      spawnInInterval: 1
+      spawningInterval: 10
+    - position: {x: -12, y: -3}
+      toSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
+      spawningDelay: 20
+      spawnInInterval: 1
+      spawningInterval: 20
+    - position: {x: 12, y: -3}
+      toSpawn: {fileID: 2481008732136364287, guid: 476d04a16e7cbdc4d9a4e83723423b04, type: 3}
+      spawningDelay: 20
+      spawnInInterval: 1
+      spawningInterval: 20
+  - duration: 25
+    data:
+    - position: {x: 0, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: 784df88146438b8499a964779662edd2, type: 3}
+      spawningDelay: 8
       spawnInInterval: 0
       spawningInterval: 0
-    - position: {x: 0, y: 5}
-      toSpawn: {fileID: 0}
+    - position: {x: 3, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: f7a1b290c8a8fdf4587e4639b94ec046, type: 3}
+      spawningDelay: 8
+      spawnInInterval: 0
+      spawningInterval: 0
+    - position: {x: -3, y: 7}
+      toSpawn: {fileID: 8268900706049681711, guid: 961952835a24c724c9dcd4602a2c5474, type: 3}
+      spawningDelay: 8
       spawnInInterval: 0
       spawningInterval: 0
   wave: 1

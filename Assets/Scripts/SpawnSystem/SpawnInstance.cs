@@ -4,33 +4,39 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace SpawnSystem {
+    public struct SpawnInstanceSetting {
+        public GameObject spawningObject;
+        public float spawningDelay;
+        public bool spawningInInterval;
+        public float spawningInterval;
+    }
+    
     public class SpawnInstance : MonoBehaviour {
-        [ReadOnly] public bool spawningInInterval { private set; get; }
-        [ReadOnly] public GameObject spawningObject { private set; get; }
-        [ReadOnly] public float spawningInterval { private set; get; }
-
+        private SpawnInstanceSetting _setting;
         private bool _canCoroutineInterval;
 
-        public void Init(bool spawningInInterval, GameObject spawningObject, float spawningInterval) {
-            this.spawningObject = spawningObject;
-            this.spawningInInterval = spawningInInterval;
-            this.spawningInterval = spawningInterval;
+        public void Init(SpawnInstanceSetting setting) {
+            _setting = setting;
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            _canCoroutineInterval = true;
             
-            if (this.spawningObject == null) return;
-            if (spawningInInterval) {
-                _canCoroutineInterval = true;
+            if (_setting.spawningObject == null) return;
+            StartCoroutine(StartSpawning());
+        }
+
+        private IEnumerator StartSpawning() {
+            yield return new WaitForSeconds(_setting.spawningDelay);
+            if (_setting.spawningInInterval) {
                 StartCoroutine(SpawningInterval());
-            }
-            else {
-                Instantiate(spawningObject, transform.position, transform.rotation);
+            } else {
+                Instantiate(_setting.spawningObject, transform.position, transform.rotation);
             }
         }
 
         private IEnumerator SpawningInterval() {
             while (_canCoroutineInterval) {
-                Instantiate(spawningObject, transform.position, transform.rotation);
-                yield return new WaitForSeconds(spawningInterval);
+                Instantiate(_setting.spawningObject, transform.position, transform.rotation);
+                yield return new WaitForSeconds(_setting.spawningInterval);
             }
         }
 

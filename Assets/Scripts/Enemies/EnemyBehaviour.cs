@@ -29,6 +29,7 @@ namespace Enemies {
             OnExit();
             HasDied = true;
             _spinTween?.Kill();
+            StopAllCoroutines();
         }
 
         protected abstract void OnEnter(); 

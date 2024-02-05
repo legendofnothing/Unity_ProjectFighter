@@ -3,5 +3,7 @@ namespace Core.Events {
        OnReleaseOverheat,
        OnFinishOverheat,
        OnPickupAdded,
+       OnPlayerDeath,
+       OnSpawnSystemFinished,
     }
 }

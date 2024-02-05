@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Core;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ namespace Enemies.Variants {
         public float chaseSpeed;
         [Range(0f, 10f)]
         public float rotateSpeed;
+
+        public LayerMask damageLayer;
+        public float damageUponImpact;
         
         private float _currentSpeed;
         private float _currentRotateSpeed;
@@ -27,6 +31,13 @@ namespace Enemies.Variants {
             transform.rotation = Quaternion.Euler(Vector3.zero);
             _currentRotateSpeed = 0;
             _currentSpeed = 0;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (CheckLayerMask.IsInLayerMask(other.gameObject, damageLayer)) {
+                Player.Player.Instance.TakeDamage(damageUponImpact);
+                gameObject.GetComponent<Enemy>().TakeDamage(999999999f);
+            }
         }
     }
 }

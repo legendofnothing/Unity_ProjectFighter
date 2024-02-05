@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Core.Events;
+using Core.Logging;
 using Enemies.Variants;
 using Icon;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using EventType = Core.Events.EventType;
 
 namespace SpawnSystem {
     [Serializable]
@@ -15,6 +18,7 @@ namespace SpawnSystem {
         public Vector2 position;
         public GameObject toSpawn;
         [TitleGroup("Spawning Config")] 
+        public float spawningDelay;
         public bool spawnInInterval;
         [ShowIf(nameof(spawnInInterval))] public float spawningInterval;
     }
@@ -34,15 +38,20 @@ namespace SpawnSystem {
 
         private static int _spawnCounts;
         private List<GameObject> _currentSpawnObjects = new();
- 
+
         private void Start() {
             StartCoroutine(SpawnCoroutine());
         }
 
         private IEnumerator SpawnCoroutine() {
-            foreach (var spawnList in spawns) {
+            var list = spawns;
+#if UNITY_EDITOR
+            list = spawns.Skip(wave).ToList();
+            NCLogger.Log($"Debugging wave {wave}");
+#endif
+            foreach (var spawnList in list) {
                 foreach (var spawn in spawnList.data) {
-                    _currentSpawnObjects.Add(SpawnObject(spawn.position, spawn.spawnInInterval, spawn.toSpawn, spawn.spawningInterval));
+                    _currentSpawnObjects.Add(SpawnObject(spawn.position, spawn.spawnInInterval, spawn.toSpawn, spawn.spawningDelay ,spawn.spawningInterval));
                 }
 
                 yield return new WaitForSeconds(spawnList.duration);
@@ -51,18 +60,23 @@ namespace SpawnSystem {
                     Destroy(inst);
                 }
             }
-            Debug.Log("finished spawning");
+            this.FireEvent(EventType.OnSpawnSystemFinished);
             yield return null;
         }
 
-        private GameObject SpawnObject(Vector3 position, bool inInterval, GameObject toSpawn, float interval) {
-            var inst = new GameObject("Sex", typeof(DrawIcon), typeof(SpawnInstance)) {
+        private GameObject SpawnObject(Vector3 position, bool inInterval, GameObject toSpawn, float delay, float interval) {
+            var inst = new GameObject("SpawningInstance", typeof(DrawIcon), typeof(SpawnInstance)) {
                 transform = {
                     position = position,
                     parent = gameObject.transform
                 }
             };
-            inst.GetComponent<SpawnInstance>().Init(inInterval, toSpawn, interval);
+            inst.GetComponent<SpawnInstance>().Init(new SpawnInstanceSetting {
+                spawningObject = toSpawn,
+                spawningDelay = delay,
+                spawningInInterval = inInterval,
+                spawningInterval = interval
+            });
             return inst;
         }
 

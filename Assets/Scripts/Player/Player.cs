@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using Core.Events;
 using Core.Patterns;
 using ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using EventType = Core.Events.EventType;
 
 namespace Player {
     [Serializable]
@@ -78,6 +80,7 @@ namespace Player {
             currentHP = -1;
             canDamage = false;
             hasDied = true;
+            this.FireEvent(EventType.OnPlayerDeath);
         }
         
         public void ReduceFuel(float amount) {
