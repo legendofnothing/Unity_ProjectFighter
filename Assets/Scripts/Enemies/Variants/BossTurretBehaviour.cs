@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Enemies.Variants {
-    public class BossTurret : EnemyBehaviour {
+    public class BossTurretBehaviour : EnemyBehaviour {
         public Rigidbody2D turretTarget;
         [Range(0f, 10f)]
         public float rotateSpeed;

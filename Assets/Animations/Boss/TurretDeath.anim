@@ -177,6 +177,8 @@ AnimationClip:
       value: {fileID: 139262099432843681, guid: c1cc13add2ad0184589d37f2ed7fa2d3, type: 3}
     - time: 0.5833333
       value: {fileID: -3443098030262898823, guid: c1cc13add2ad0184589d37f2ed7fa2d3, type: 3}
+    - time: 0.6666667
+      value: {fileID: 0}
     attribute: m_Sprite
     path: SpriteWeapon
     classID: 212
@@ -252,12 +254,13 @@ AnimationClip:
     - {fileID: -6344450153812775810, guid: c1cc13add2ad0184589d37f2ed7fa2d3, type: 3}
     - {fileID: 139262099432843681, guid: c1cc13add2ad0184589d37f2ed7fa2d3, type: 3}
     - {fileID: -3443098030262898823, guid: c1cc13add2ad0184589d37f2ed7fa2d3, type: 3}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -417,4 +420,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: OnEnterDeath
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: OnFinishDeath
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -12,8 +12,9 @@ namespace Enemies {
         private EnemyBehaviour _behaviour;
         
         private static readonly int Death = Animator.StringToHash("Death");
+        private static readonly int Hit = Animator.StringToHash("Hit");
 
-        private void Start() {
+        protected virtual void Start() {
             _behaviour = GetComponent<EnemyBehaviour>();
             _currHP = enemyHP;
             _animator = GetComponent<Animator>();
@@ -23,6 +24,7 @@ namespace Enemies {
         public void TakeDamage(float amount) {
             if (_hasDied) return;
             _currHP -= amount;
+            if (_animator) _animator.SetTrigger(Hit);
             if (_currHP <= 0) Die();
         }
         
@@ -32,11 +34,11 @@ namespace Enemies {
             if (_behaviour != null) _behaviour.OnDeath();
         }
 
-        public void OnEnterDeath() {
+        public virtual void OnEnterDeath() {
             _collider.enabled = false;
         }
 
-        public void OnFinishDeath() {
+        public virtual void OnFinishDeath() {
             Destroy(gameObject);
         }
     }
