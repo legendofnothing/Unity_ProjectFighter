@@ -28,7 +28,7 @@ namespace Enemies {
         
         private void Die() {
             _hasDied = true;
-            _animator.SetTrigger(Death);
+            if (_animator) _animator.SetTrigger(Death);
             if (_behaviour != null) _behaviour.OnDeath();
         }
 

@@ -42,6 +42,13 @@ namespace Enemies {
             var rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f, Vector3.forward);
             _rigidbody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rot, maxRotationDelta));
         }
+        
+        protected void LookAt(Vector3 point, float maxRotationDelta, Rigidbody2D rigidbody2D) {
+            var dir = (point - rigidbody2D.gameObject.transform.position).normalized;
+            dir.z = 0;
+            var rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f, Vector3.forward);
+            rigidbody2D.MoveRotation(Quaternion.RotateTowards(rigidbody2D.gameObject.transform.rotation, rot, maxRotationDelta));
+        }
 
         protected void AimAt(Vector3 point) {
             var dir = (point - transform.position).normalized;
